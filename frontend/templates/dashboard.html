@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document Intelligence Platform — Dashboard</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-icon">DI</div>
+        <div>
+          <h1>Document Intelligence Platform</h1>
+          <p style="font-size: 0.8rem; color: var(--text-muted);">AI Field Extraction &amp; Financial Validation</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="grid-layout grid-layout-split">
+      <!-- Upload Card -->
+      <section class="card">
+        <h2 class="card-title">Upload Document</h2>
+        <form id="upload-form">
+          <div class="form-group">
+            <label class="form-label" for="document_type">Document Type</label>
+            <select name="document_type" id="document_type" class="form-select" required>
+              <option value="invoice">Invoice</option>
+              <option value="balance_sheet">Balance Sheet</option>
+              <option value="profit_and_loss">Profit &amp; Loss</option>
+              <option value="cash_flow_statement">Cash Flow Statement</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Document File (PDF / JPG / PNG)</label>
+            <div class="file-dropzone" id="file-dropzone">
+              <div class="dropzone-icon">📄</div>
+              <div class="dropzone-text" id="dropzone-text">Click or drag file here</div>
+              <div class="dropzone-hint">Supported: PDF, JPG, PNG (Max 10MB, 3 pages)</div>
+              <input type="file" name="file" id="file" accept=".pdf,.jpg,.jpeg,.png" required />
+            </div>
+          </div>
+
+          <button type="submit" id="submit-btn" class="btn-primary">
+            <span>Process Document</span>
+          </button>
+        </form>
+
+        <div id="upload-status"></div>
+      </section>
+
+      <!-- Documents Dashboard List -->
+      <section class="card">
+        <div class="card-title">
+          <span>Processed Documents</span>
+          <button id="refresh-btn" class="btn-sm">↻ Refresh</button>
+        </div>
+
+        <div class="table-container">
+          <table class="data-table" id="documents-table">
+            <thead>
+              <tr>
+                <th>Document Name</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Processed At</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="documents-tbody">
+              <!-- Populated dynamically -->
+            </tbody>
+          </table>
+          <div id="empty-state" class="empty-state" style="display: none;">
+            <div class="empty-icon">📁</div>
+            <p>No documents processed yet. Upload a document to start.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

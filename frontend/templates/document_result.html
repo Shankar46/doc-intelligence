@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document Processing Result</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-icon">DI</div>
+        <div>
+          <h1>Document Processing Detail</h1>
+          <p style="font-size: 0.8rem; color: var(--text-muted);">Grounding Evidence &amp; Financial Audit</p>
+        </div>
+      </div>
+      <a href="/" class="nav-link">&larr; Back to Dashboard</a>
+    </header>
+
+    <main id="result-root" data-document-name="{{ document_name }}" class="grid-layout">
+      <!-- Document Summary Card -->
+      <section class="card">
+        <div class="card-title">
+          <span id="doc-title">Document Summary</span>
+          <span id="doc-status-badge" class="badge">--</span>
+        </div>
+
+        <div class="meta-grid">
+          <div class="meta-item">
+            <div class="meta-label">Document Name</div>
+            <div class="meta-value" id="meta-name" style="font-size: 0.95rem; word-break: break-all;">-</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Document Type</div>
+            <div class="meta-value" id="meta-type">-</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">OCR Used</div>
+            <div class="meta-value" id="meta-ocr">-</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Processing Time</div>
+            <div class="meta-value" id="meta-time">-</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Pages / Format</div>
+            <div class="meta-value" id="meta-pages">-</div>
+          </div>
+        </div>
+
+        <div id="issues-container"></div>
+      </section>
+
+      <!-- Extracted Fields Card -->
+      <section class="card">
+        <h2 class="card-title">Extracted Fields &amp; Evidence Grounding</h2>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Field Name</th>
+                <th>Extracted Value</th>
+                <th>Page</th>
+                <th>Grounding Evidence (Source Text Snippet)</th>
+              </tr>
+            </thead>
+            <tbody id="fields-tbody">
+              <!-- Populated dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Line Items Card (if applicable) -->
+      <section class="card" id="line-items-card" style="display: none;">
+        <h2 class="card-title">Tabular Line Items</h2>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody id="line-items-tbody">
+              <!-- Populated dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Financial Validation Results Card -->
+      <section class="card">
+        <div class="card-title">
+          <span>Financial Validation Checks</span>
+          <span id="validation-overall-badge" class="badge">--</span>
+        </div>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Rule Name</th>
+                <th>Formula</th>
+                <th>Calculated</th>
+                <th>Reported</th>
+                <th>Variance</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="validation-tbody">
+              <!-- Populated dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Raw JSON Accordion -->
+      <details class="json-accordion">
+        <summary class="json-summary">
+          <span>Raw API JSON Snapshot</span>
+          <div class="json-actions">
+            <button id="copy-json-btn" class="btn-sm">Copy JSON</button>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Expand/Collapse</span>
+          </div>
+        </summary>
+        <pre class="json-body" id="raw-json"></pre>
+      </details>
+    </main>
+  </div>
+
+  <script src="/static/js/document_result.js"></script>
+</body>
+</html>
