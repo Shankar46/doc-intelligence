@@ -1,0 +1,99 @@
+{
+  "document_name": "cash_flow_2025.pdf",
+  "document_type": "cash_flow_statement",
+  "processing_status": "PASS",
+  "file_validation": {
+    "file_type": "application/pdf",
+    "is_supported": true,
+    "is_readable": true,
+    "page_count": 1,
+    "status": "PASS",
+    "reason": null
+  },
+  "extracted_data": {
+    "operating_cash_flow": {
+      "value": 45000.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Net Cash Provided by Operating Activities: 45,000",
+        "page_number": 1
+      }
+    },
+    "investing_cash_flow": {
+      "value": -15000.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Net Cash Used in Investing Activities: -15,000",
+        "page_number": 1
+      }
+    },
+    "financing_cash_flow": {
+      "value": -5000.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Net Cash Used in Financing Activities: -5,000",
+        "page_number": 1
+      }
+    },
+    "opening_cash": {
+      "value": 30000.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Cash at Beginning of Year: 30,000",
+        "page_number": 1
+      }
+    },
+    "net_change_in_cash": {
+      "value": 25000.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Net Increase in Cash: 25,000",
+        "page_number": 1
+      }
+    },
+    "closing_cash": {
+      "value": 55000.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Cash at End of Year: 55,000",
+        "page_number": 1
+      }
+    }
+  },
+  "validation": {
+    "checks": [
+      {
+        "name": "net_change_check",
+        "formula": "operating_cash_flow + investing_cash_flow + financing_cash_flow",
+        "operands": {
+          "operating_cash_flow": 45000.0,
+          "investing_cash_flow": -15000.0,
+          "financing_cash_flow": -5000.0
+        },
+        "calculated_value": 25000.0,
+        "reported_value": 25000.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "closing_cash_check",
+        "formula": "opening_cash + net_change_in_cash",
+        "operands": {
+          "opening_cash": 30000.0,
+          "net_change_in_cash": 25000.0
+        },
+        "calculated_value": 55000.0,
+        "reported_value": 55000.0,
+        "variance": 0.0,
+        "status": "PASS"
+      }
+    ],
+    "overall_status": "PASS",
+    "issues": []
+  },
+  "processing_metadata": {
+    "ocr_used": false,
+    "processed_at": "2026-09-10T18:20:00.000000+00:00",
+    "processing_time_ms": 1280
+  }
+}

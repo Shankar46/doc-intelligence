@@ -41,3 +41,31 @@ def test_balance_sheet_pass():
     }
     result = run_validation("balance_sheet", extracted)
     assert result["overall_status"] == "PASS"
+
+
+def test_profit_and_loss_validation_pass():
+    extracted = {
+        "revenue": {"value": 50000.0},
+        "cost_of_sales": {"value": 20000.0},
+        "gross_profit": {"value": 30000.0},
+        "operating_expenses": {"value": 10000.0},
+        "operating_profit": {"value": 20000.0},
+        "tax": {"value": 4000.0},
+        "net_profit": {"value": 16000.0},
+    }
+    result = run_validation("profit_and_loss", extracted)
+    assert result["overall_status"] == "PASS"
+
+
+def test_cash_flow_validation_pass():
+    extracted = {
+        "operating_cash_flow": {"value": 15000.0},
+        "investing_cash_flow": {"value": -5000.0},
+        "financing_cash_flow": {"value": -2000.0},
+        "opening_cash": {"value": 10000.0},
+        "net_change_in_cash": {"value": 8000.0},
+        "closing_cash": {"value": 18000.0},
+    }
+    result = run_validation("cash_flow_statement", extracted)
+    assert result["overall_status"] == "PASS"
+
