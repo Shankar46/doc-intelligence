@@ -4,9 +4,9 @@ AI-powered document extraction, financial validation, persistence, and REST API 
 
 ## 1. Solution Overview & Architecture
 
-The application accepts PDF/JPG/PNG financial documents, validates file integrity and page count, extracts native PDF text or uses adaptive Tesseract OCR for scanned documents, then performs document-type-specific structured extraction with evidence. Financial relationships are validated using only fields actually present in the source, and processed results are persisted in SQLite for dashboard/API retrieval.
+The application accepts PDF/JPG/PNG financial documents, validates file integrity and page count, extracts native PDF text or uses adaptive Tesseract OCR for scanned documents, then performs **dynamic structure-aware extraction** with evidence. The extractor discovers key/value pairs, statement rows, table headers, line items, comparative periods, and additional fields from the actual document instead of maintaining a parser for each vendor/template. A single optional LLM pass maps discovered content to validation concepts and preserves unknown fields. Financial relationships are validated using only grounded values actually present in the source, and processed results are persisted in SQLite for dashboard/API retrieval.
 
-Flow: Upload → File Validation → OCR/Text Extraction → AI/Deterministic Field & Table Extraction → Financial Validation → Persistence (SQLite) → Dashboard / REST API.
+Flow: Upload → File Validation → OCR/Text Extraction → 2-D Layout-Aware Field & Table Extraction → Grounded LLM Semantic Discovery → Financial Validation → Persistence (SQLite) → Dashboard / REST API.
 
 Architecture diagram: `docs/architecture.png`
 
@@ -19,8 +19,9 @@ Architecture diagram: `docs/architecture.png`
 | API | FastAPI | Built-in Swagger/OpenAPI and simple REST implementation |
 | DB | SQLite (SQLAlchemy) | Zero-setup persistent store; easy to replace with Postgres |
 | OCR | PyMuPDF (native text) + adaptive Tesseract | Free/local OCR and works with scanned PDFs/images |
-| Extraction LLM | Hugging Face (`deepseek-ai/DeepSeek-R1`) | Optional structured extraction provider |
-| Extraction fallback | Deterministic OCR parser | Allows useful local processing when an LLM key is unavailable |
+| Extraction LLM | Hugging Face (`deepseek-ai/DeepSeek-R1`) | One bounded semantic extraction pass when configured |
+| Extraction engine | Dynamic row/key-value/table discovery + semantic mapping | Adapts to unseen labels and layouts without vendor-specific parsers |
+| Extraction fallback | Dynamic deterministic OCR parser | Allows useful local processing when an LLM key is unavailable |
 | Frontend | Jinja2 + vanilla JS + CSS | No frontend build step |
 | Deployment | Render/Railway/Koyeb compatible | `Procfile`/`render.yaml` included |
 
@@ -39,16 +40,16 @@ Visit `http://localhost:8000` for the dashboard and `http://localhost:8000/docs`
 
 ## 4. Environment Variables
 
-See `.env.example`. Never commit real API keys. `DATABASE_URL` defaults to local SQLite. If `LLM_PROVIDER=huggingface`, provide `HUGGINGFACE_API_KEY`; if no LLM key is configured, the deterministic OCR fallback is used.
+See `.env.example`. Never commit real API keys. `DATABASE_URL` defaults to local SQLite. If `LLM_PROVIDER=huggingface`, provide `HUGGINGFACE_API_KEY` to enable LLM completion; if no LLM key is configured, the deterministic OCR extractor is used.
 
 ## 5. Deployed URLs
 
 Populate these after deployment before final submission:
 
-- Frontend: `<LIVE_FRONTEND_URL>`
-- Backend API base: `<LIVE_BACKEND_API_URL>`
+- Frontend: `NOT_DEPLOYED`
+- Backend API base: `NOT_DEPLOYED`
 - Swagger/OpenAPI: `<LIVE_BACKEND_API_URL>/docs`
-- Public GitHub repository: `<PUBLIC_GITHUB_REPOSITORY_URL>`
+- Public GitHub repository: `NOT_PUBLISHED`
 
 ## 6. API Examples
 
@@ -87,7 +88,7 @@ curl "$BASE_URL/api/v1/health"
 
 ## 7. OCR / LLM Provider Used
 
-Native PDFs are read with PyMuPDF. Pages with little/no native text are rasterized at 250 DPI and processed using fast adaptive Tesseract OCR (table-friendly PSM first, extra passes only when needed). Financial table scans prefer a table-preserving OCR layout, with additional OCR variants used when useful. The optional LLM provider is Hugging Face with `deepseek-ai/DeepSeek-R1`. If the provider/key is unavailable, extraction falls back to document-type-specific OCR parsing rather than parsing the extraction prompt.
+Native PDFs are read with PyMuPDF. Scanned pages are rasterized at 200 DPI and processed using adaptive Tesseract OCR; a second layout pass is used only when the primary result is weak. The extraction layer then discovers the document structure dynamically: explicit key/value pairs, noisy OCR labels, financial rows, repeated totals, comparative values, and invoice tables. When configured, one bounded LLM pass performs semantic mapping and discovers additional fields; it is not called once per missing field. If no provider/key is available, the dynamic OCR extractor remains usable.
 
 The 2021 scanned Consolidated Balance Sheet was specifically regression-tested. Its visible totals are `17,995,066,442` for 31-Mar-21 and `15,808,304,373` for 31-Mar-20.
 
@@ -130,4 +131,27 @@ ChatGPT was used for debugging, extraction/prompt design, OCR troubleshooting, v
 
 ### Extraction performance
 
-The application uses deterministic OCR extraction by default for fast, reliable processing. Set `USE_LLM_FALLBACK=true` only when you want the optional remote LLM fallback for documents the OCR parser cannot recover. Remote failures do not block the deterministic path.
+The application uses a dynamic OCR-first pipeline. It does not create a separate LLM request for every field: when `USE_LLM_FALLBACK=true` and an API key is configured, one bounded LLM pass receives the page OCR and maps semantic fields while also returning unknown/discovered fields and table rows. Existing OCR-grounded values are not overwritten. LLM values are accepted only when their evidence can be found in the supplied OCR. If no key is configured, the dynamic deterministic extractor remains fully usable.
+
+
+## Dynamic extraction architecture
+
+The extraction pipeline is intentionally not vendor/template-specific. OCR retains 2-D word coordinates, and invoice table extraction uses the actual column-header positions to keep numbers embedded in product descriptions out of quantity/unit-price/amount fields. The LLM receives the complete OCR for all pages, including headers and footers, and any non-canonical fields are preserved under `discovered_fields`.
+
+Invoice total validation supports subtotal + tax + shipping/handling/other charges - discount. Financial validation failures are reported under `validation`; they do not change `processing_status` for a readable document that was successfully parsed.
+
+Presentation deliverables: `docs/solution_presentation.pptx` and `docs/solution_presentation.pdf`.
+
+## Extraction audit
+
+The latest extraction corrections and regression findings are documented in `docs/extraction_audit_v10.md`.
+
+### v12 invoice OCR regression fix
+
+The invoice fallback now preserves embedded numeric product data and uses the final reconciled quantity/unit-price/amount triplet when OCR loses row coordinates. Numbered rows and unnumbered-but-arithmetic rows are supported, while invoice footer sections are prevented from being appended to the last line-item description. Same-line financial labels no longer consume values from the next row, and percentage rates are excluded from tax amounts. The invoice total check includes shipping/handling, and processing status remains `PASS` when financial validation fails.
+
+### v13 invoice extraction hardening
+
+The v13 parser fixes the remaining failure mode where Tesseract splits one visual invoice row into multiple physical OCR rows. Invoice rows are grouped by the 2-D item-number/column layout before financial values are assigned, so wrapped descriptions are merged instead of becoming extra line items. The text fallback also repairs an OCR-corrupted quantity only when the row's reported amount divided by price gives an exact positive integer (for example `5 × 8 != 16` is repaired to quantity `2`). Embedded product numbers such as `570`, `12oz`, `10760667-011PW`, and `100/BX` remain in descriptions. Currency evidence is grounded on summary rows, and vendor inference ignores invoice labels, contact emails, addresses, and arbitrary table rows.
+
+The v13 regression suite contains **35 passed, 1 skipped** tests locally.

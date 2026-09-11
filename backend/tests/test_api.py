@@ -40,3 +40,31 @@ def test_document_detail_page_renders():
     assert res.status_code == 200
     assert "Document Processing Detail" in res.text
 
+
+
+def test_processing_status_is_pass_when_validation_fails(monkeypatch):
+    import app.services.document_service as ds
+
+    class FakeRepo:
+        def __init__(self, db): pass
+        def save_result(self, *args, **kwargs): pass
+
+    class FakeFileValidation:
+        def model_dump(self):
+            return {"file_type":"image/jpeg","is_supported":True,"is_readable":True,"page_count":1,"status":"PASS","reason":None}
+
+    class FakeOCR:
+        ocr_used = True
+        pages = ["Invoice\nTotal Due 100"]
+        layouts = [[]]
+
+    monkeypatch.setattr(ds, "DocumentRepository", FakeRepo)
+    monkeypatch.setattr(ds, "validate_file", lambda *a, **k: FakeFileValidation())
+    monkeypatch.setattr(ds, "_detect_kind", lambda *a, **k: "image")
+    monkeypatch.setattr(ds, "extract_text", lambda *a, **k: FakeOCR())
+    monkeypatch.setattr(ds, "extract_fields", lambda *a, **k: {"total_amount":{"value":100}})
+    monkeypatch.setattr(ds, "run_validation", lambda *a, **k: {"checks":[{"name":"total","status":"FAIL","calculated_value":90,"reported_value":100,"variance":-10,"formula":"x","operands":{}}],"overall_status":"FAIL","issues":["mismatch"]})
+
+    result = ds.process_document(object(), b"bytes", "x.jpg", "image/jpeg", "invoice")
+    assert result["processing_status"] == "PASS"
+    assert result["validation"]["overall_status"] == "FAIL"

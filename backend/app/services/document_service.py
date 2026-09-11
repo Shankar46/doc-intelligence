@@ -55,7 +55,7 @@ def process_document(db: Session, file_bytes: bytes, filename: str,
 
     # 3. AI field & table extraction (spec 4.2 / 4.3)
     try:
-        extracted_data = extract_fields(ocr_result.pages, document_type)
+        extracted_data = extract_fields(ocr_result.pages, document_type, page_layouts=ocr_result.layouts)
     except Exception as exc:
         logger.exception("Extraction failed for '%s'", filename)
         result = _build_failed_response(filename, document_type, "EXTRACTION_FAILED", str(exc), start)
@@ -65,8 +65,11 @@ def process_document(db: Session, file_bytes: bytes, filename: str,
     # 4. Financial validation (spec 4.4)
     validation_result = run_validation(document_type, extracted_data)
 
-    # 5. Processing status (spec 4.5): PASS unless validation hard-FAILs
-    processing_status = "FAILED" if validation_result["overall_status"] == "FAIL" else "PASS"
+    # 5. Processing status is about document processing, not financial arithmetic.
+    # A readable/supported document that was successfully OCRed and parsed is
+    # PROCESSING PASS even when one or more financial validation checks fail.
+    # Validation failures are isolated in validation.overall_status/checks.
+    processing_status = "PASS"
 
     elapsed_ms = int((time.perf_counter() - start) * 1000)
     result = {

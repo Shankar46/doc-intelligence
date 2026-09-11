@@ -79,51 +79,56 @@ function renderFields(extractedData) {
 
   const lineItems = extractedData.line_items;
 
-  for (const [field, info] of Object.entries(extractedData)) {
-    if (field === "line_items") continue;
-
+  function appendFieldRow(field, info, prefix = "") {
     const value = info?.value;
     const isMissing = value === null || value === undefined;
     const pageNum = info?.page_number ?? info?.evidence?.page_number ?? "-";
     const sourceSnippet = info?.evidence?.source_text;
+    const confidence = info?.confidence;
 
     const tr = document.createElement("tr");
-    
-    // Explicit Visual Highlight for Missing Fields (Required by spec)
-    if (isMissing) {
-      tr.className = "field-missing-row";
-    }
+    if (isMissing) tr.className = "field-missing-row";
 
     tr.innerHTML = `
-      <td style="font-weight: 500;">${escapeHtml(field)}</td>
+      <td style="font-weight: 500;">${escapeHtml(prefix + field)}</td>
       <td>
-        ${
-          isMissing
-            ? '<span class="badge badge-missing">Missing / Null</span>'
-            : `<strong style="color: var(--text-main);">${escapeHtml(String(value))}</strong>`
-        }
+        ${isMissing
+          ? '<span class="badge badge-missing">Missing / Null</span>'
+          : `<strong style="color: var(--text-main);">${escapeHtml(String(value))}</strong>`}
+        ${confidence != null ? `<div style="font-size:0.75rem;color:var(--text-muted);margin-top:3px;">Confidence: ${Math.round(confidence * 100)}%</div>` : ""}
       </td>
       <td>${pageNum}</td>
       <td>
-        ${
-          sourceSnippet 
-            ? `<span class="evidence-tag" title="${escapeHtml(sourceSnippet)}">"${escapeHtml(sourceSnippet)}"</span>`
-            : '<span style="color: var(--text-muted); font-size: 0.8rem;">None provided</span>'
-        }
+        ${sourceSnippet
+          ? `<span class="evidence-tag" title="${escapeHtml(sourceSnippet)}">"${escapeHtml(sourceSnippet)}"</span>`
+          : '<span style="color: var(--text-muted); font-size: 0.8rem;">None provided</span>'}
       </td>
     `;
-
     tbody.appendChild(tr);
   }
 
-  // Render Line Items Table if present
+  for (const [field, info] of Object.entries(extractedData)) {
+    // These are metadata/collections rendered separately rather than as a
+    // scalar extracted field. This keeps the dynamic schema readable.
+    if (["line_items", "financial_line_items", "extraction_quality"].includes(field)) continue;
+
+    if (field === "discovered_fields" && info && typeof info === "object" && !Array.isArray(info)) {
+      for (const [label, discoveredInfo] of Object.entries(info)) {
+        appendFieldRow(label, discoveredInfo, "discovered: ");
+      }
+      continue;
+    }
+    appendFieldRow(field, info);
+  }
+
+  // Render invoice line items when present.
   const lineItemsCard = document.getElementById("line-items-card");
   const lineItemsTbody = document.getElementById("line-items-tbody");
-  
+
   if (dataDocumentTypeIsInvoice() && Array.isArray(lineItems) && lineItems.length > 0) {
     lineItemsCard.style.display = "block";
     lineItemsTbody.innerHTML = "";
-    
+
     lineItems.forEach((item) => {
       const tr = document.createElement("tr");
       tr.innerHTML = `

@@ -1,55 +1,23 @@
-# Debug & Verification Report
+# Extraction and validation debug report — v8
 
-## Original defect
+## Root cause found
+The earlier implementation treated deterministic regex extraction as the primary source for every document. This was too conservative for invoice layouts and too fragile for OCR-fragmented financial statements. It also allowed ambiguous labels to capture nearby values (for example `Minority Interest` inside a longer row) and could select an OCR-corrupted total.
 
-The local extraction fallback searched the complete LLM user prompt. Because the prompt itself contained field names and examples, deterministic regex could extract schema/schedule text as if it were document data. This caused values such as `assets = 10`, `liabilities = 12`, `invoice_number = Minimum`, and signature text as `customer_name`.
+## v8 corrections
+- Invoice extraction now supports label/value separation, common label variants, currency symbols/codes, decimal-comma amounts, tax percentages versus tax amounts, explicit tax-included wording, and flexible invoice table headers.
+- Invoice metadata matching is anchored to actual field labels so prose such as `Tales from ...` cannot become a vendor name. Tax IDs are excluded from tax extraction.
+- P&L extraction now distinguishes generic revenue/COGS statements from the case-study bank-style formulas and supports comparative values. Ambiguous occurrences such as `profit before minority interest` are not mistaken for the standalone `minority interest` row.
+- Cash-flow extraction supports operating/investing/financing activities, bracketed negatives, FX adjustments, opening/closing cash, applicable adjustments, and comparative values.
+- Balance-sheet extraction handles OCR labels with missing spaces (`Reservesandsurplus`, `Otherassets`), standalone schedule identifiers, current/comparative values, explicit generic totals, and all required HDFC-style component rows.
+- Balance-sheet OCR repair uses an accounting identity only when the asset components and capital/liability total reconcile exactly; this repairs an obvious OCR digit corruption rather than inventing a financial value.
+- LLM completion is now a second layer for missing required fields. Existing grounded OCR values are never overwritten. LLM values require source evidence that is present in the OCR text.
+- Extraction output now includes `extraction_quality.required_fields_missing` and `manual_review_required`, allowing the dashboard to identify incomplete extraction separately from financial validation.
+- Financial validation is period-aware for comparative P&L and cash-flow data and remains null-safe (`NOT_APPLICABLE` when required operands are unavailable).
 
-## Fix
+## Verification
+- Automated tests: **22 passed, 1 skipped**.
+- The supplied scanned 2021 Balance Sheet was reprocessed after the changes: required HDFC-style components and both totals reconcile with **PASS**.
+- The remaining `total_liabilities` and `total_equity` fields are left `null` because the HDFC-style source presents `Total Capital & Liabilities`, not separate labels for those fields.
 
-- Fallback extraction now receives the actual OCR/document text separately from the prompt.
-- Balance Sheet extraction uses a dedicated table parser.
-- Schedule numbers are never interpreted as `total_liabilities` or `total_equity`.
-- OCR number parsing handles spaces around comma groups and parentheses for negatives.
-- A targeted OCR pass repairs incomplete Balance Sheet Total rows when full-page OCR is damaged by table borders.
-- Comparative periods and values are retained.
-- Financial statement line items are displayed in a dedicated frontend table.
-- Validation rules now follow the case-study formulas.
-
-## Real supplied-document verification
-
-| File | Current Assets | Current Capital & Liabilities | Comparative Assets | Validation |
-|---|---:|---:|---:|---|
-| Consolidated Balance Sheet 2017.pdf | 8,923,441,607 | 8,923,441,607 | 7,622,123,264 | PASS |
-| Consolidated Balance Sheet 2018.pdf | 11,031,861,695 | 11,031,861,695 | 8,923,441,607 | PASS |
-| Consolidated Balance Sheet 2019.pdf | 12,928,057,065 | 12,928,057,065 | 11,031,861,695 | PASS |
-| Consolidated Balance Sheet 2020.pdf | 15,808,304,373 | 15,808,304,373 | 12,928,057,065 | PASS |
-| Consolidated Balance Sheet 2021.pdf | 17,995,066,442 | 17,995,066,442 | 15,808,304,373 | PASS |
-
-All five supplied documents are scanned/image-based PDFs and were successfully OCR-processed locally.
-
-## API verification
-
-Verified locally with the supplied 2020 Balance Sheet:
-
-- `POST /api/v1/documents/process` → HTTP 200, correct extracted totals, validation PASS
-- `GET /api/v1/documents/{document_name}` → HTTP 200, persisted latest result
-- `GET /api/v1/documents` → dashboard list endpoint available
-- `GET /api/v1/health` → HTTP 200
-- `GET /docs` → HTTP 200 Swagger/OpenAPI page
-- unsupported `.txt` upload → HTTP 400 structured error
-
-## Automated tests
-
-```text
-15 passed, 1 skipped
-```
-
-The skipped test only concerns the optional OpenAI-compatible SDK in the current execution environment; the dependency remains in `backend/requirements.txt`.
-
-## Security cleanup
-
-The real-looking Hugging Face token previously present in `.env.example` was removed. The final package does not include the Git history. If the old repository history has already been pushed anywhere, rotate/revoke that token and rewrite the public Git history before submission.
-
-## Remaining submission actions
-
-Deployment cannot be completed without access to the candidate's deployment/GitHub accounts. Before submitting, publish the repository, deploy the Docker application, configure `HUGGINGFACE_API_KEY` as a deployment secret, verify the live URLs, and replace the deployment placeholders in the README.
+## Dataset limitation
+The supplied real source dataset contains Balance Sheet PDFs. The repository's invoice/P&L/cash-flow examples are sample structured outputs rather than equivalent real source documents. Therefore those three categories are covered by robust parser tests and sample schemas, but true source-to-output accuracy for them should be measured again when real invoice/P&L/cash-flow documents are available.

@@ -27,6 +27,25 @@ class ExtractedField(BaseModel):
     evidence: Optional[Evidence] = None
 
 
+
+
+class InvoiceExtractedData(BaseModel):
+    """Canonical invoice fields used by validation.
+
+    Additional vendor-specific fields remain available through the dynamic
+    ``discovered_fields`` object in the API response.
+    """
+    invoice_number: Optional[str] = None
+    invoice_date: Optional[str] = None
+    vendor_name: Optional[str] = None
+    customer_name: Optional[str] = None
+    currency: Optional[str] = None
+    subtotal: Optional[float] = None
+    tax_amount: Optional[float] = None
+    discount: Optional[float] = None
+    shipping_and_handling: Optional[float] = None
+    total_amount: Optional[float] = None
+
 class LineItem(BaseModel):
     description: Optional[str] = None
     quantity: Optional[float] = None

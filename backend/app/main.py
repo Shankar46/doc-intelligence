@@ -5,6 +5,7 @@ deployment covers both frontend + API -- simplest path for a free-tier
 deploy target like Render/Railway/Koyeb.
 """
 import logging
+from pathlib import Path
 
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.responses import JSONResponse
@@ -28,8 +29,9 @@ init_db()
 app.include_router(documents.router)
 
 # --- Frontend (served by the same app; adjust paths if you deploy separately) ---
-templates = Jinja2Templates(directory="../frontend/templates")
-app.mount("/static", StaticFiles(directory="../frontend/static"), name="static")
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+templates = Jinja2Templates(directory=str(PROJECT_ROOT / "frontend" / "templates"))
+app.mount("/static", StaticFiles(directory=str(PROJECT_ROOT / "frontend" / "static")), name="static")
 
 
 @app.get("/")
