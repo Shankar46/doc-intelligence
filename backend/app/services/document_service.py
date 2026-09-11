@@ -65,11 +65,10 @@ def process_document(db: Session, file_bytes: bytes, filename: str,
     # 4. Financial validation (spec 4.4)
     validation_result = run_validation(document_type, extracted_data)
 
-    # 5. Processing status is about document processing, not financial arithmetic.
-    # A readable/supported document that was successfully OCRed and parsed is
-    # PROCESSING PASS even when one or more financial validation checks fail.
-    # Validation failures are isolated in validation.overall_status/checks.
-    processing_status = "PASS"
+    # 5. Determine overall processing status per requirements:
+    # PASS: Required fields are extracted accurately and required validations pass.
+    # FAILED: Document could not be processed, or validations fail.
+    processing_status = "PASS" if validation_result.get("overall_status") == "PASS" else "FAILED"
 
     elapsed_ms = int((time.perf_counter() - start) * 1000)
     result = {

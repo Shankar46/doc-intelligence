@@ -774,8 +774,29 @@ def _semantic_label_matches(label: str, target: str) -> bool:
     return False
 
 
+
+def _infer_columns(lines: list[str], layout: list[dict[str, Any]] | None) -> tuple[float | None, float | None]:
+    if not layout: return None, None
+    current_xs = []
+    comparative_xs = []
+    for line in lines:
+        nums = _number_tokens(line)
+        values = [v for v in (_parse_number(x) for x in nums) if v is not None]
+        if len(values) >= 2:
+            t1, t2 = nums[-2], nums[-1]
+            x1, x2 = None, None
+            for b in layout:
+                if b.get("text") == t1: x1 = float(b.get("left", 0))
+                if b.get("text") == t2: x2 = float(b.get("left", 0))
+            if x1 is not None: current_xs.append(x1)
+            if x2 is not None: comparative_xs.append(x2)
+    avg_curr = sum(current_xs) / len(current_xs) if current_xs else None
+    avg_comp = sum(comparative_xs) / len(comparative_xs) if comparative_xs else None
+    return avg_curr, avg_comp
+
 def _extract_semantic_fields(lines: list[str], page: int, document_type: str, layout: list[dict[str, Any]] | None = None) -> dict[str, dict]:
     fields: dict[str, dict] = {}
+    avg_curr, avg_comp = _infer_columns(lines, layout)
     target_groups = {
         "invoice": {"invoice_number", "invoice_date", "vendor_name", "customer_name", "currency", "subtotal", "tax_amount", "discount", "shipping_and_handling", "total_amount"},
         "balance_sheet": {"total_assets", "total_liabilities", "total_equity", "total_capital_and_liabilities", "minority_interest", "capital", "reserves_and_surplus", "deposits", "borrowings", "other_liabilities_and_provisions", "cash_and_balances_with_reserve_bank_of_india", "balances_with_banks_and_money_at_call_and_short_notice", "investments", "advances", "fixed_assets", "other_assets"},
@@ -867,7 +888,20 @@ def _extract_semantic_fields(lines: list[str], page: int, document_type: str, la
                 continue
             vals, source = _extract_values_near_label(lines, i, 4, skip_small_schedule=document_type == "balance_sheet")
             if vals:
-                _put(fields, target, vals[0], page, source, confidence=0.90)
+                assigned_curr = False
+                if len(vals) == 1 and avg_curr is not None and avg_comp is not None and layout:
+                    nums = _number_tokens(source.split("\n")[0] if "\n" in source else source)
+                    if nums:
+                        t1 = nums[-1]
+                        x1 = None
+                        for b in layout:
+                            if b.get("text") == t1: x1 = float(b.get("left", 0))
+                        if x1 is not None:
+                            if abs(x1 - avg_comp) < abs(x1 - avg_curr):
+                                _put(fields, target + "__comparative", vals[0], page, source, confidence=0.90)
+                                assigned_curr = True
+                if not assigned_curr:
+                    _put(fields, target, vals[0], page, source, confidence=0.90)
                 if len(vals) > 1:
                     _put(fields, target + "__comparative", vals[1], page, source, confidence=0.90)
     return fields

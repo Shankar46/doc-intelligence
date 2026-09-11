@@ -6,7 +6,9 @@ parsed by column position instead of flattening every number into one string.
 """
 import io
 import logging
+import os
 import re
+import shutil
 from statistics import median
 from typing import Any
 
@@ -19,6 +21,13 @@ from app.core.config import settings
 logger = logging.getLogger(__name__)
 if settings.tesseract_cmd:
     pytesseract.pytesseract.tesseract_cmd = settings.tesseract_cmd
+else:
+    bundled_windows_tesseract = "E:\\tesseract\\tesseract.exe"
+    discovered_tesseract = shutil.which("tesseract") or (
+        bundled_windows_tesseract if os.path.exists(bundled_windows_tesseract) else None
+    )
+    if discovered_tesseract:
+        pytesseract.pytesseract.tesseract_cmd = discovered_tesseract
 
 MIN_CHARS_FOR_NATIVE_TEXT = 20
 
@@ -178,8 +187,8 @@ def _extract_from_pdf(file_bytes: bytes) -> OCRResult:
     pages, layouts, used = [], [], False
     for page_index in range(doc.page_count):
         page = doc[page_index]
-        native = page.get_text().strip()
         native_layout = _native_layout(page)
+        native = (_layout_to_text(native_layout) or page.get_text()).strip()
         if len(native) >= MIN_CHARS_FOR_NATIVE_TEXT:
             pages.append(native)
             layouts.append(native_layout)

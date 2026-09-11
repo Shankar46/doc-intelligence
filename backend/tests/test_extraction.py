@@ -462,6 +462,41 @@ Consolidated Net Profit for the year before minorities' interest 65,446.50 46,14
     assert profit_and_loss["consolidated_net_profit_before_minority_interest"]["value"] == 65446.50
 
 
+def test_statement_schedule_numbers_do_not_become_amounts(monkeypatch):
+    import app.services.extraction_service as es
+    monkeypatch.setattr(es.settings, "use_llm_fallback", False)
+    data = es.extract_fields(["""Consolidated Profit and Loss Account
+Interest Earned
+17
+120,000.00
+100,000.00
+Other Income
+18
+5,000.00
+4,000.00
+Total Income
+125,000.00
+104,000.00
+Interest Expended
+19
+50,000.00
+40,000.00
+Operating Expenses
+20
+20,000.00
+18,000.00
+Provisions and Contingencies
+21
+5,000.00
+4,000.00
+Total Expenditure
+75,000.00
+62,000.00"""], "profit_and_loss")
+    assert data["interest_earned"]["value"] == 120000
+    assert data["interest_expended"]["value"] == 50000
+    assert data["operating_expenses"]["value"] == 20000
+
+
 def test_balance_sheet_missing_total_is_repaired_from_visible_components(monkeypatch):
     import app.services.extraction_service as es
     monkeypatch.setattr(es.settings, "use_llm_fallback", False)
