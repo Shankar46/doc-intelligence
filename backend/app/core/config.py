@@ -18,6 +18,9 @@ class Settings(BaseSettings):
 
     tesseract_cmd: str | None = None
 
+    # Deterministic OCR extraction is the fast/default path. Set USE_LLM_FALLBACK=true
+    # only when an OCR parser cannot recover enough fields.
+    use_llm_fallback: bool = False
     llm_provider: str = "huggingface"  # huggingface | openai | gemini | anthropic
     huggingface_api_key: str | None = None
     huggingface_model: str = "deepseek-ai/DeepSeek-R1"

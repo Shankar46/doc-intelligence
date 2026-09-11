@@ -69,6 +69,10 @@ function renderSummary(data) {
   }
 }
 
+function dataDocumentTypeIsInvoice() {
+  return (document.getElementById("meta-type")?.textContent || "").toLowerCase() === "invoice";
+}
+
 function renderFields(extractedData) {
   const tbody = document.getElementById("fields-tbody");
   tbody.innerHTML = "";
@@ -116,7 +120,7 @@ function renderFields(extractedData) {
   const lineItemsCard = document.getElementById("line-items-card");
   const lineItemsTbody = document.getElementById("line-items-tbody");
   
-  if (Array.isArray(lineItems) && lineItems.length > 0) {
+  if (dataDocumentTypeIsInvoice() && Array.isArray(lineItems) && lineItems.length > 0) {
     lineItemsCard.style.display = "block";
     lineItemsTbody.innerHTML = "";
     

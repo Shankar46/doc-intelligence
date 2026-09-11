@@ -1,0 +1,485 @@
+{
+  "document_name": "Consolidated Balance Sheet 2020.pdf",
+  "document_type": "balance_sheet",
+  "processing_status": "PASS",
+  "file_validation": {
+    "file_type": "application/pdf",
+    "is_supported": true,
+    "is_readable": true,
+    "page_count": 1,
+    "status": "PASS",
+    "reason": null
+  },
+  "extracted_data": {
+    "statement_name": {
+      "value": "Consolidated Balance Sheet",
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Consolidated Balance Sheet",
+        "page_number": 1
+      }
+    },
+    "statement_date": {
+      "value": "31-Mar-20",
+      "page_number": 1,
+      "evidence": {
+        "source_text": "31-Mar-20",
+        "page_number": 1
+      }
+    },
+    "unit_scale": {
+      "value": "000",
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Zin \u2018000",
+        "page_number": 1
+      }
+    },
+    "statement_periods": {
+      "value": [
+        "31-Mar-20",
+        "31-Mar-19"
+      ],
+      "page_number": 1,
+      "evidence": {
+        "source_text": "As at 31-Mar-20 31-Mar-19",
+        "page_number": 1
+      }
+    },
+    "report_date": {
+      "value": "April 18, 2020",
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Mumbai, April 18, 2020 Company Secretary",
+        "page_number": 1
+      }
+    },
+    "company_name": {
+      "value": "HDFC Bank Limited",
+      "page_number": 1,
+      "evidence": {
+        "source_text": "236 HDFC Bank Limited Integrated Annual Report 2019-20",
+        "page_number": 1
+      }
+    },
+    "capital": {
+      "value": 5483286.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Capital 1 5,483,286 5,446,613",
+        "page_number": 1
+      }
+    },
+    "capital__comparative": {
+      "value": 5446613.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Capital 1 5,483,286 5,446,613",
+        "page_number": 1
+      }
+    },
+    "reserves_and_surplus": {
+      "value": 1758103766.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Reserves and surplus 2 1,758,103,766 1,531,279,982",
+        "page_number": 1
+      }
+    },
+    "reserves_and_surplus__comparative": {
+      "value": 1531279982.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Reserves and surplus 2 1,758,103,766 1,531,279,982",
+        "page_number": 1
+      }
+    },
+    "minority_interest": {
+      "value": 5766413.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Minority interest 2A 5,766,413 5,017,945",
+        "page_number": 1
+      }
+    },
+    "minority_interest__comparative": {
+      "value": 5017945.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Minority interest 2A 5,766,413 5,017,945",
+        "page_number": 1
+      }
+    },
+    "deposits": {
+      "value": 11462071336.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Deposits 3 11,462,071 ,336 9,225,026,779",
+        "page_number": 1
+      }
+    },
+    "deposits__comparative": {
+      "value": 9225026779.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Deposits 3 11,462,071 ,336 9,225,026,779",
+        "page_number": 1
+      }
+    },
+    "borrowings": {
+      "value": 1868343231.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Borrowings 4 1,868,343,231 1,577,327,790",
+        "page_number": 1
+      }
+    },
+    "borrowings__comparative": {
+      "value": 1577327790.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Borrowings 4 1,868,343,231 1,577,327,790",
+        "page_number": 1
+      }
+    },
+    "other_liabilities_and_provisions": {
+      "value": 708536341.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Other liabilities and provisions 5 708,536,341 583,957,956",
+        "page_number": 1
+      }
+    },
+    "other_liabilities_and_provisions__comparative": {
+      "value": 583957956.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Other liabilities and provisions 5 708,536,341 583,957,956",
+        "page_number": 1
+      }
+    },
+    "total_capital_and_liabilities": {
+      "value": 15808304373.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Total 15,808,304,373 | 12,928,057,065",
+        "page_number": 1
+      }
+    },
+    "total_capital_and_liabilities__comparative": {
+      "value": 12928057065.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Total 15,808,304,373 | 12,928,057,065",
+        "page_number": 1
+      }
+    },
+    "cash_and_balances_with_reserve_bank_of_india": {
+      "value": 722110033.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Cash and balances with Reserve Bank of India 6 722,110,033 468,045,896",
+        "page_number": 1
+      }
+    },
+    "cash_and_balances_with_reserve_bank_of_india__comparative": {
+      "value": 468045896.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Cash and balances with Reserve Bank of India 6 722,110,033 468,045,896",
+        "page_number": 1
+      }
+    },
+    "balances_with_banks_and_money_at_call_and_short_notice": {
+      "value": 157291086.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Balances with banks and money at call and short notice Fi 157,291,086 350,130,527",
+        "page_number": 1
+      }
+    },
+    "balances_with_banks_and_money_at_call_and_short_notice__comparative": {
+      "value": 350130527.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Balances with banks and money at call and short notice Fi 157,291,086 350,130,527",
+        "page_number": 1
+      }
+    },
+    "investments": {
+      "value": 3893049519.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Investments 8 3,893,049,519 2,894,458,722",
+        "page_number": 1
+      }
+    },
+    "investments__comparative": {
+      "value": 2894458722.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Investments 8 3,893,049,519 2,894,458,722",
+        "page_number": 1
+      }
+    },
+    "advances": {
+      "value": 10436708771.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Advances 9 10,436,708,771 8,692,226,631",
+        "page_number": 1
+      }
+    },
+    "advances__comparative": {
+      "value": 8692226631.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Advances 9 10,436,708,771 8,692,226,631",
+        "page_number": 1
+      }
+    },
+    "fixed_assets": {
+      "value": 46268558.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Fixed assets 10 46,268,558 42,198,371",
+        "page_number": 1
+      }
+    },
+    "fixed_assets__comparative": {
+      "value": 42198371.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Fixed assets 10 46,268,558 42,198,371",
+        "page_number": 1
+      }
+    },
+    "other_assets": {
+      "value": 552876406.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Other assets WW 552,876,406 480,996,918",
+        "page_number": 1
+      }
+    },
+    "other_assets__comparative": {
+      "value": 480996918.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Other assets WW 552,876,406 480,996,918",
+        "page_number": 1
+      }
+    },
+    "total_assets": {
+      "value": 15808304373.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Total 15,808,304,373 12,928,057,065",
+        "page_number": 1
+      }
+    },
+    "total_assets__comparative": {
+      "value": 12928057065.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Total 15,808,304,373 12,928,057,065",
+        "page_number": 1
+      }
+    },
+    "contingent_liabilities": {
+      "value": 11304740615.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Contingent liabilities 12 11,304,740,615 10,251 ,253,094",
+        "page_number": 1
+      }
+    },
+    "contingent_liabilities__comparative": {
+      "value": 10251253094.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Contingent liabilities 12 11,304,740,615 10,251 ,253,094",
+        "page_number": 1
+      }
+    },
+    "bills_for_collection": {
+      "value": 515849020.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Bills for collection 515,849,020 499,528,010",
+        "page_number": 1
+      }
+    },
+    "bills_for_collection__comparative": {
+      "value": 499528010.0,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Bills for collection 515,849,020 499,528,010",
+        "page_number": 1
+      }
+    },
+    "total_liabilities": {
+      "value": null,
+      "page_number": null,
+      "evidence": {
+        "source_text": null,
+        "page_number": null
+      }
+    },
+    "total_equity": {
+      "value": null,
+      "page_number": null,
+      "evidence": {
+        "source_text": null,
+        "page_number": null
+      }
+    },
+    "financial_line_items": [
+      {
+        "name": "capital",
+        "source_text": "Capital 1 5,483,286 5,446,613",
+        "page_number": 1,
+        "31-Mar-20": 5483286.0,
+        "31-Mar-19": 5446613.0
+      },
+      {
+        "name": "reserves_and_surplus",
+        "source_text": "Reserves and surplus 2 1,758,103,766 1,531,279,982",
+        "page_number": 1,
+        "31-Mar-20": 1758103766.0,
+        "31-Mar-19": 1531279982.0
+      },
+      {
+        "name": "minority_interest",
+        "source_text": "Minority interest 2A 5,766,413 5,017,945",
+        "page_number": 1,
+        "31-Mar-20": 5766413.0,
+        "31-Mar-19": 5017945.0
+      },
+      {
+        "name": "deposits",
+        "source_text": "Deposits 3 11,462,071 ,336 9,225,026,779",
+        "page_number": 1,
+        "31-Mar-20": 11462071336.0,
+        "31-Mar-19": 9225026779.0
+      },
+      {
+        "name": "borrowings",
+        "source_text": "Borrowings 4 1,868,343,231 1,577,327,790",
+        "page_number": 1,
+        "31-Mar-20": 1868343231.0,
+        "31-Mar-19": 1577327790.0
+      },
+      {
+        "name": "other_liabilities_and_provisions",
+        "source_text": "Other liabilities and provisions 5 708,536,341 583,957,956",
+        "page_number": 1,
+        "31-Mar-20": 708536341.0,
+        "31-Mar-19": 583957956.0
+      },
+      {
+        "name": "total_capital_and_liabilities",
+        "source_text": "Total 15,808,304,373 | 12,928,057,065",
+        "page_number": 1,
+        "31-Mar-20": 15808304373.0,
+        "31-Mar-19": 12928057065.0
+      },
+      {
+        "name": "cash_and_balances_with_reserve_bank_of_india",
+        "source_text": "Cash and balances with Reserve Bank of India 6 722,110,033 468,045,896",
+        "page_number": 1,
+        "31-Mar-20": 722110033.0,
+        "31-Mar-19": 468045896.0
+      },
+      {
+        "name": "balances_with_banks_and_money_at_call_and_short_notice",
+        "source_text": "Balances with banks and money at call and short notice Fi 157,291,086 350,130,527",
+        "page_number": 1,
+        "31-Mar-20": 157291086.0,
+        "31-Mar-19": 350130527.0
+      },
+      {
+        "name": "investments",
+        "source_text": "Investments 8 3,893,049,519 2,894,458,722",
+        "page_number": 1,
+        "31-Mar-20": 3893049519.0,
+        "31-Mar-19": 2894458722.0
+      },
+      {
+        "name": "advances",
+        "source_text": "Advances 9 10,436,708,771 8,692,226,631",
+        "page_number": 1,
+        "31-Mar-20": 10436708771.0,
+        "31-Mar-19": 8692226631.0
+      },
+      {
+        "name": "fixed_assets",
+        "source_text": "Fixed assets 10 46,268,558 42,198,371",
+        "page_number": 1,
+        "31-Mar-20": 46268558.0,
+        "31-Mar-19": 42198371.0
+      },
+      {
+        "name": "other_assets",
+        "source_text": "Other assets WW 552,876,406 480,996,918",
+        "page_number": 1,
+        "31-Mar-20": 552876406.0,
+        "31-Mar-19": 480996918.0
+      },
+      {
+        "name": "total_assets",
+        "source_text": "Total 15,808,304,373 12,928,057,065",
+        "page_number": 1,
+        "31-Mar-20": 15808304373.0,
+        "31-Mar-19": 12928057065.0
+      },
+      {
+        "name": "contingent_liabilities",
+        "source_text": "Contingent liabilities 12 11,304,740,615 10,251 ,253,094",
+        "page_number": 1,
+        "31-Mar-20": 11304740615.0,
+        "31-Mar-19": 10251253094.0
+      },
+      {
+        "name": "bills_for_collection",
+        "source_text": "Bills for collection 515,849,020 499,528,010",
+        "page_number": 1,
+        "31-Mar-20": 515849020.0,
+        "31-Mar-19": 499528010.0
+      }
+    ]
+  },
+  "validation": {
+    "checks": [
+      {
+        "name": "balance_sheet_check",
+        "formula": "total_capital_and_liabilities \u2248 total_assets",
+        "operands": {
+          "total_capital_and_liabilities": 15808304373.0
+        },
+        "calculated_value": 15808304373.0,
+        "reported_value": 15808304373.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "balance_sheet_comparative_check",
+        "formula": "comparative total_capital_and_liabilities \u2248 comparative total_assets",
+        "operands": {
+          "comparative_total_capital_and_liabilities": 12928057065.0
+        },
+        "calculated_value": 12928057065.0,
+        "reported_value": 12928057065.0,
+        "variance": 0.0,
+        "status": "PASS"
+      }
+    ],
+    "overall_status": "PASS",
+    "issues": []
+  },
+  "processing_metadata": {
+    "ocr_used": true,
+    "processed_at": "2026-09-10T15:57:01.792955+00:00",
+    "processing_time_ms": 8241
+  }
+}

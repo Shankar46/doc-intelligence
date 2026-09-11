@@ -89,6 +89,12 @@ async function loadDocuments() {
 document.getElementById("upload-form").addEventListener("submit", async (e) => {
   e.preventDefault();
 
+  const selectedType = document.getElementById("document_type").value;
+  if (!selectedType) {
+    showStatus("Please select the document type before processing.", "error");
+    return;
+  }
+
   if (!fileInput.files.length) {
     showStatus("Please select a file to upload.", "error");
     return;

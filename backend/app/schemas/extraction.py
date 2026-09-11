@@ -62,6 +62,6 @@ class ProcessedDocumentResponse(BaseModel):
     processing_status: str  # PASS | FAILED
     overall_confidence: Optional[float] = None  # OPTIONAL
     file_validation: FileValidation
-    extracted_data: dict[str, Any]  # field_name -> ExtractedField dict, plus "line_items": [...]
+    extracted_data: dict[str, Any]  # field_name -> ExtractedField dict; invoice may include line_items
     validation: ValidationResult
     processing_metadata: ProcessingMetadata
