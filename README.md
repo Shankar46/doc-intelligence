@@ -41,7 +41,8 @@ Visit `http://localhost:8000` for the dashboard and `http://localhost:8000/docs`
 
 See `.env.example`. 
 - `DATABASE_URL` defaults to local SQLite. 
-- `GEMINI_API_KEY` is required for the AI extraction process.
+- `LLM_PROVIDER` should be set to `huggingface`.
+- `HUGGINGFACE_API_KEY` is required for the AI extraction process.
 
 ## 6. API Usage Examples
 
