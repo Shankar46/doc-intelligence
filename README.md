@@ -4,9 +4,9 @@ AI-powered document extraction, financial validation, persistence, and REST API 
 
 ## 1. Deployed Application Links (Evaluator Please Note)
 
-- **Frontend Application:** `https://doc-intelligence-nb5c.onrender.com`
-- **Backend API Base URL:** `https://doc-intelligence-nb5c.onrender.com/api/v1`
-- **Swagger / OpenAPI Docs:** `https://doc-intelligence-nb5c.onrender.com/docs`
+- **Frontend Application:** `https://doc-intelligence-gwks.onrender.com`
+- **Backend API Base URL:** `https://doc-intelligence-gwks.onrender.com/api/v1`
+- **Swagger / OpenAPI Docs:** `https://doc-intelligence-gwks.onrender.com/docs`
 - **Public GitHub Repository:** `https://github.com/Shankar46/doc-intelligence`
 
 ## 2. Solution Overview and Architecture
