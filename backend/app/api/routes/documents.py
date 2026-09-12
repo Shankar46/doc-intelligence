@@ -3,6 +3,7 @@ REST API routes (spec section 5). Kept thin -- all real work happens
 in app.services.document_service.
 """
 import logging
+from datetime import timezone
 from fastapi import APIRouter, UploadFile, File, Form, Depends, HTTPException
 from sqlalchemy.orm import Session
 
@@ -69,7 +70,7 @@ def list_documents(db: Session = Depends(get_db)):
                 "document_name": r.document_name,
                 "document_type": r.document_type,
                 "processing_status": r.processing_status,
-                "processed_at": r.created_at.isoformat() if r.created_at else None,
+                "processed_at": r.created_at.replace(tzinfo=timezone.utc).isoformat() if r.created_at else None,
             }
             for r in records
         ],

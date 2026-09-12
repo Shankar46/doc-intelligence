@@ -131,13 +131,31 @@ def _date_from_text(text: str) -> str | None:
     return None
 
 
-def _extract_values_near_label(lines: list[str], index: int, max_follow: int = 2, skip_small_schedule: bool = False) -> tuple[list[float], str]:
+def _extract_values_near_label(
+    lines: list[str], index: int, max_follow: int = 2,
+    skip_small_schedule: bool = False, skip_small_schedule_inline: bool | None = None,
+) -> tuple[list[float], str]:
     """Read numeric value(s) belonging to a label without stealing next rows.
 
     Explicit same-line key/value pairs are authoritative. This prevents
     ``Subtotal: 135`` from consuming the next ``Sales Tax 8%: 12.48`` line.
     Percentage rates are ignored as monetary values.
+
+    ``skip_small_schedule`` drops a bare schedule/note-reference number that
+    sits alone on its own line, immediately before the real amount line(s) --
+    unambiguous, since a pure single-number line under 100 with no amount
+    context is essentially always a reference, not a value.
+
+    ``skip_small_schedule_inline`` additionally drops a small leading number
+    when the label AND two amounts are all packed onto one line (e.g.
+    ``Capital 1  100.00  90.00``). This is ambiguous on statements that
+    legitimately report two small comparative-period values on one line
+    (e.g. ``Minority Interest 20 10``), so it defaults to following
+    ``skip_small_schedule`` only where explicitly requested (balance sheets,
+    where this exact same-line layout is common) rather than everywhere.
     """
+    if skip_small_schedule_inline is None:
+        skip_small_schedule_inline = skip_small_schedule
     first = lines[index]
     # Remove percentages before numeric parsing (e.g. ``Sales Tax 8%: 12.48``).
     numeric_source = re.sub(r"\(?\d+(?:[.,]\d+)?\s*%\)?", " ", first)
@@ -146,13 +164,13 @@ def _extract_values_near_label(lines: list[str], index: int, max_follow: int = 2
     first_nums = [x for x in (_parse_number(t) for t in raw_first_tokens) if x is not None]
     if re.search(r"\bschedule\b", first, re.I) and len(first_nums) >= 2:
         first_nums = first_nums[-2:]
-    if skip_small_schedule and len(first_nums) >= 2 and abs(float(first_nums[0])) <= 99 and re.search(r"[A-Za-z]", first):
+    if skip_small_schedule_inline and len(first_nums) >= 2 and abs(float(first_nums[0])) <= 99 and re.search(r"[A-Za-z]", first):
         first_nums = first_nums[1:]
     if re.search(r"\b(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|january|february|march|april|june|july|august|september|october|november|december)\b", first, re.I) and not CURRENCY_RE.search(first):
         numeric_source = re.sub(r"\b(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|january|february|march|april|june|july|august|september|october|november|december)\s+\d{1,2}(?:st|nd|rd|th)?\b", " ", numeric_source, flags=re.I)
         raw_first_tokens = _number_tokens(numeric_source)
         first_nums = [x for x in (_parse_number(t) for t in raw_first_tokens) if x is not None]
-    if first_nums and not (skip_small_schedule and len(first_nums) == 1 and abs(first_nums[0]) <= 100 and re.search(r"[A-Za-z]", first)):
+    if first_nums and not (skip_small_schedule_inline and len(first_nums) == 1 and abs(first_nums[0]) <= 100 and re.search(r"[A-Za-z]", first)):
         # A value explicitly present on the label line belongs to that label.
         # Two values are retained for comparative statement rows.
         if len(first_nums) >= 2:
@@ -886,7 +904,20 @@ def _extract_semantic_fields(lines: list[str], page: int, document_type: str, la
                 continue
             if _date_from_text(line) and not re.search(r"(?:total|subtotal|tax|amount|balance|revenue|profit|income|expense|cash|assets|liabilities|capital|deposit|borrow|investment|advance)", line, re.I):
                 continue
-            vals, source = _extract_values_near_label(lines, i, 4, skip_small_schedule=document_type == "balance_sheet")
+            # Schedule/note reference numbers (a bare 1-2 digit integer printed
+            # right before the real amount) appear on balance sheets, P&L
+            # accounts, and cash flow statements alike in this statement
+            # format -- not just balance sheets -- so all three skip a bare
+            # reference line. The same-line variant (label + schedule + two
+            # amounts all on one row) stays balance-sheet-only: on P&L/cash
+            # flow statements a same-line "label smallnum smallnum" is often
+            # two genuine comparative-period values (e.g. "Minority Interest
+            # 20 10"), not a schedule ref, so stripping there would be wrong.
+            vals, source = _extract_values_near_label(
+                lines, i, 4,
+                skip_small_schedule=document_type in {"balance_sheet", "profit_and_loss", "cash_flow_statement"},
+                skip_small_schedule_inline=document_type == "balance_sheet",
+            )
             if vals:
                 assigned_curr = False
                 if len(vals) == 1 and avg_curr is not None and avg_comp is not None and layout:

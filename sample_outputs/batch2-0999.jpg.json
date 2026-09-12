@@ -1,0 +1,240 @@
+{
+  "document_name": "batch2-0999.jpg",
+  "document_type": "invoice",
+  "processing_status": "PASS",
+  "file_validation": {
+    "file_type": "image/jpeg",
+    "is_supported": true,
+    "is_readable": true,
+    "page_count": 1,
+    "status": "PASS",
+    "reason": null
+  },
+  "extracted_data": {
+    "invoice_number": {
+      "value": "118",
+      "page_number": 1,
+      "evidence": {
+        "source_text": "INVOICE NO. 118",
+        "page_number": 1
+      },
+      "confidence": 0.86
+    },
+    "invoice_date": {
+      "value": "March 9, 2022",
+      "page_number": 1,
+      "evidence": {
+        "source_text": "DATE: March 9, 2022",
+        "page_number": 1
+      },
+      "confidence": 0.92
+    },
+    "customer_name": {
+      "value": "BLUE STREAK ELECTRONICS GEONICS LTD",
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Bill from Bill To",
+        "page_number": 1
+      },
+      "confidence": 0.88
+    },
+    "vendor_name": {
+      "value": "BLUE STREAK ELECTRONICS GEONICS LTD",
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Bill from Bill To",
+        "page_number": 1
+      },
+      "confidence": 0.88
+    },
+    "shipping_and_handling": {
+      "value": 136,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Freight AE Blake Montreal to Aerospace Metal 03 6 136.00 136.00",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "shipping_and_handling__comparative": {
+      "value": 136,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Freight AE Blake Montreal to Aerospace Metal 03 6 136.00 136.00",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "currency": {
+      "value": "$",
+      "page_number": 1,
+      "evidence": {
+        "source_text": "ID | DESCRIPTION QUANTITY PRICE, $ TOTAL, $",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "subtotal": {
+      "value": null,
+      "page_number": null,
+      "evidence": {
+        "source_text": null,
+        "page_number": null
+      }
+    },
+    "tax_amount": {
+      "value": null,
+      "page_number": null,
+      "evidence": {
+        "source_text": null,
+        "page_number": null
+      }
+    },
+    "total_amount": {
+      "value": null,
+      "page_number": null,
+      "evidence": {
+        "source_text": null,
+        "page_number": null
+      }
+    },
+    "discovered_fields": {
+      "date": {
+        "value": "March 9, 2022",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "DATE:",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "march": {
+        "value": "9, 2022",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "March 9, 2022",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "due date": {
+        "value": "April 9, 2022",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "DUE DATE:",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "april": {
+        "value": "9, 2022",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "April 9, 2022",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "3m dp460 eg epoxy adhesive 50ml 2": {
+        "value": "1 12 kits/case",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "3M DP460 EG Epoxy Adhesive - 50ml 2:1 12 kits/case",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "vot eam is a mere delivery may differ": {
+        "value": "8800 88.00",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "vot eam Is a mere delivery may differ 8800 88.00",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      }
+    },
+    "line_items": [
+      {
+        "description": "3M Scotchcast Electrical Resin #8 16 16 Ibs/kit lbs/case -",
+        "quantity": 1,
+        "unit_price": 346,
+        "amount": 346,
+        "page_number": 1,
+        "source_text": "3M Scotchcast Electrical Resin #8 - 16 Ibs/kit 16 lbs/case 01 2 346.00 346.00"
+      },
+      {
+        "description": "Adhesive 50ml kits/case 3M DP460 EG Epoxy 2:1 12 -",
+        "quantity": 1,
+        "unit_price": 226,
+        "amount": 226,
+        "page_number": 1,
+        "source_text": "3M DP460 EG Epoxy Adhesive - 50ml 2:1 12 kits/case 02 4 226.00 226.00"
+      }
+    ],
+    "extraction_quality": {
+      "required_fields_missing": [
+        "total_amount"
+      ],
+      "manual_review_required": true,
+      "method": "dynamic_ocr_plus_single_llm_pass",
+      "dynamic_schema": true
+    }
+  },
+  "validation": {
+    "checks": [
+      {
+        "name": "invoice_total_check",
+        "formula": "dynamic additive reconciliation",
+        "operands": {},
+        "calculated_value": null,
+        "reported_value": null,
+        "variance": null,
+        "status": "NOT_APPLICABLE"
+      },
+      {
+        "name": "cash_change_check",
+        "formula": "cash_paid - total_amount \u2248 change_amount",
+        "operands": {
+          "cash_paid": null,
+          "total_amount": null
+        },
+        "calculated_value": null,
+        "reported_value": null,
+        "variance": null,
+        "status": "NOT_APPLICABLE"
+      },
+      {
+        "name": "line_item_check[0]",
+        "formula": "quantity * unit_price",
+        "operands": {
+          "quantity": 1,
+          "unit_price": 346
+        },
+        "calculated_value": 346.0,
+        "reported_value": 346.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "line_item_check[1]",
+        "formula": "quantity * unit_price",
+        "operands": {
+          "quantity": 1,
+          "unit_price": 226
+        },
+        "calculated_value": 226.0,
+        "reported_value": 226.0,
+        "variance": 0.0,
+        "status": "PASS"
+      }
+    ],
+    "overall_status": "PASS",
+    "issues": []
+  },
+  "processing_metadata": {
+    "ocr_used": true,
+    "processed_at": "2026-09-12T02:34:55.631509+00:00",
+    "processing_time_ms": 2434
+  }
+}

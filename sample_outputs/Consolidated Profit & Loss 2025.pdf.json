@@ -1,0 +1,980 @@
+{
+  "document_name": "Consolidated Profit & Loss 2025.pdf",
+  "document_type": "profit_and_loss",
+  "processing_status": "PASS",
+  "file_validation": {
+    "file_type": "application/pdf",
+    "is_supported": true,
+    "is_readable": true,
+    "page_count": 1,
+    "status": "PASS",
+    "reason": null
+  },
+  "extracted_data": {
+    "interest_earned": {
+      "value": 336367.43,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Interest earned 13 336,367.43 283,649.02",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "interest_earned__comparative": {
+      "value": 283649.02,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Interest earned 13 336,367.43 283,649.02",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "other_income": {
+      "value": 134548.5,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Other income 14 134,548.50 124,345.75",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "other_income__comparative": {
+      "value": 124345.75,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Other income 14 134,548.50 124,345.75",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "interest_expended": {
+      "value": 183894.2,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Interest expended 15 183,894.20 154,138.55",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "interest_expended__comparative": {
+      "value": 154138.55,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Interest expended 15 183,894.20 154,138.55",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "operating_expenses": {
+      "value": 176605.07,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Operating expenses 16 176,605.07 152,269.34",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "operating_expenses__comparative": {
+      "value": 152269.34,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Operating expenses 16 176,605.07 152,269.34",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "provisions_and_contingencies": {
+      "value": 36976.49,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Provisions and contingencies 18 (10) 36,976.49 36,140.38",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "provisions_and_contingencies__comparative": {
+      "value": 36140.38,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Provisions and contingencies 18 (10) 36,976.49 36,140.38",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "consolidated_net_profit_before_minority_interest": {
+      "value": 73440.17,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Consolidated Net Profit for the year before Minority Interest 73,440.17 65,446.50",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "consolidated_net_profit_before_minority_interest__comparative": {
+      "value": 65446.5,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Consolidated Net Profit for the year before Minority Interest 73,440.17 65,446.50",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "net_profit": {
+      "value": 73440.17,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Consolidated Net Profit for the year before Minority Interest 73,440.17 65,446.50",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "net_profit__comparative": {
+      "value": 65446.5,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Consolidated Net Profit for the year before Minority Interest 73,440.17 65,446.50",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "minority_interest": {
+      "value": 2647.92,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Less : Minority Interest 2,647.92 1,384.46",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "minority_interest__comparative": {
+      "value": 1384.46,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Less : Minority Interest 2,647.92 1,384.46",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "consolidated_net_profit_attributable_to_group": {
+      "value": 70792.25,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Consolidated Net Profit for the year attributable to the group 70,792.25 64,062.04",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "consolidated_net_profit_attributable_to_group__comparative": {
+      "value": 64062.04,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Consolidated Net Profit for the year attributable to the group 70,792.25 64,062.04",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "statement_name": {
+      "value": "CONSOLIDATED PROFIT AND LOSS",
+      "page_number": 1,
+      "evidence": {
+        "source_text": "CONSOLIDATED PROFIT AND LOSS",
+        "page_number": 1
+      },
+      "confidence": 0.97
+    },
+    "statement_periods": {
+      "value": [
+        "March 31, 2025",
+        "April 19, 2025"
+      ],
+      "page_number": 1,
+      "evidence": {
+        "source_text": "March 31, 2025 April 19, 2025",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "statement_date": {
+      "value": "March 31, 2025",
+      "page_number": 1,
+      "evidence": {
+        "source_text": "March 31, 2025",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "unit_scale": {
+      "value": "in crore",
+      "page_number": 1,
+      "evidence": {
+        "source_text": "in crore",
+        "page_number": 1
+      },
+      "confidence": 0.86
+    },
+    "total_amount": {
+      "value": "470,915.93 407,994.77",
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Total 470,915.93 407,994.77",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "capital": {
+      "value": "507.00 4,166.41",
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Transfer to Capital Reserve 507.00 4,166.41",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "vendor_name": {
+      "value": 629.42,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Transfer to / (from) Investment Reserve Account (net) - 629.42",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "investments": {
+      "value": 629.42,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Transfer to / (from) Investment Reserve Account (net) - 629.42",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "total_income": {
+      "value": 470915.93,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Total 470,915.93 407,994.77",
+        "page_number": 1
+      },
+      "confidence": 0.84
+    },
+    "total_expenditure": {
+      "value": 397475.76,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Total 397,475.76 342,548.27",
+        "page_number": 1
+      },
+      "confidence": 0.84
+    },
+    "revenue": {
+      "value": null,
+      "page_number": null,
+      "evidence": {
+        "source_text": null,
+        "page_number": null
+      }
+    },
+    "cost_of_sales": {
+      "value": null,
+      "page_number": null,
+      "evidence": {
+        "source_text": null,
+        "page_number": null
+      }
+    },
+    "gross_profit": {
+      "value": null,
+      "page_number": null,
+      "evidence": {
+        "source_text": null,
+        "page_number": null
+      }
+    },
+    "operating_profit": {
+      "value": null,
+      "page_number": null,
+      "evidence": {
+        "source_text": null,
+        "page_number": null
+      }
+    },
+    "tax": {
+      "value": null,
+      "page_number": null,
+      "evidence": {
+        "source_text": null,
+        "page_number": null
+      }
+    },
+    "discovered_fields": {
+      "for the year ended march": {
+        "value": "31, 2025",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "For the year ended March 31, 2025",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "interest earned": {
+        "value": "13 336,367.43 283,649.02",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Interest earned 13 336,367.43 283,649.02",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "other income": {
+        "value": "14 134,548.50 124,345.75",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Other income 14 134,548.50 124,345.75",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "total": {
+        "value": "470,915.93 407,994.77",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Total 470,915.93 407,994.77",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "interest expended": {
+        "value": "15 183,894.20 154,138.55",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Interest expended 15 183,894.20 154,138.55",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "operating expenses": {
+        "value": "16 176,605.07 152,269.34",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Operating expenses 16 176,605.07 152,269.34",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "provisions and contingencies 18 10": {
+        "value": "36,976.49 36,140.38",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Provisions and contingencies 18 (10) 36,976.49 36,140.38",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "consolidated net profit for the year before minority interest": {
+        "value": "73,440.17 65,446.50",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Consolidated Net Profit for the year before Minority Interest 73,440.17 65,446.50",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "less": {
+        "value": "Minority Interest 2,647.92 1,384.46",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Less : Minority Interest 2,647.92 1,384.46",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "consolidated net profit for the year attributable to the group": {
+        "value": "70,792.25 64,062.04",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Consolidated Net Profit for the year attributable to the group 70,792.25 64,062.04",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "brought forward consolidated profit attributable to the group": {
+        "value": "150,045.57 120,369.35",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Brought forward consolidated profit attributable to the group 150,045.57 120,369.35",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "addition on amalgamation net 18 1": {
+        "value": 3570.1,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Addition on amalgamation (net) 18 (1) - 3,570.10",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "transfer to statutory reserve": {
+        "value": "17,260.30 15,684.72",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Transfer to Statutory Reserve 17,260.30 15,684.72",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "transfer to general reserve": {
+        "value": "6,734.74 6,081.23",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Transfer to General Reserve 6,734.74 6,081.23",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "transfer to special reserve": {
+        "value": "3,200.00 3,000.00",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Transfer to Special Reserve 3,200.00 3,000.00",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "transfer to capital reserve": {
+        "value": "507.00 4,166.41",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Transfer to Capital Reserve 507.00 4,166.41",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "transfer to from investment reserve account net": {
+        "value": 629.42,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Transfer to / (from) Investment Reserve Account (net) - 629.42",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "transfer to from investment fluctuation reserve": {
+        "value": 378,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Transfer to / (from) Investment Fluctuation Reserve - 378.00",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "dividend pertaining to previous year paid during the year": {
+        "value": "14,826.19 8,404.42",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Dividend pertaining to previous year paid during the year 14,826.19 8,404.42",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "transfer to from minority interest opening adjustment 882 96": {
+        "value": -288.28,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Transfer to / (from) Minority Interest (opening adjustment) (882.96) (288.28)",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "balance carried over to consolidated balance sheet": {
+        "value": "178,692.55 150,045.57",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Balance carried over to consolidated balance sheet 178,692.55 150,045.57",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "basic": {
+        "value": "92.81 90.42",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Basic 92.81 90.42",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "diluted": {
+        "value": "92.39 90.01",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Diluted 92.39 90.01",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "icai firm registration no": {
+        "value": "ICAI Firm Registration No.:",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "ICAI Firm Registration No.: ICAI Firm Registration No.:",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "membership no": {
+        "value": "101119 Membership No.: 116976 Independent Director Independent Director",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Membership No.: 101119 Membership No.: 116976 Independent Director Independent Director",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "integrated annual report 2024 25": {
+        "value": 447,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Integrated Annual Report 2024-25 447",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      }
+    },
+    "financial_line_items": [
+      {
+        "label": "For the year ended March",
+        "values": [
+          31202,
+          5
+        ],
+        "page_number": 1,
+        "source_text": "For the year ended March 31, 2025",
+        "current": 31202,
+        "comparative": 5
+      },
+      {
+        "label": "Interest earned",
+        "values": [
+          336367.43,
+          283649.02
+        ],
+        "page_number": 1,
+        "source_text": "Interest earned 13 336,367.43 283,649.02",
+        "current": 336367.43,
+        "comparative": 283649.02
+      },
+      {
+        "label": "Other income",
+        "values": [
+          134548.5,
+          124345.75
+        ],
+        "page_number": 1,
+        "source_text": "Other income 14 134,548.50 124,345.75",
+        "current": 134548.5,
+        "comparative": 124345.75
+      },
+      {
+        "label": "Interest expended",
+        "values": [
+          183894.2,
+          154138.55
+        ],
+        "page_number": 1,
+        "source_text": "Interest expended 15 183,894.20 154,138.55",
+        "current": 183894.2,
+        "comparative": 154138.55
+      },
+      {
+        "label": "Operating expenses",
+        "values": [
+          176605.07,
+          152269.34
+        ],
+        "page_number": 1,
+        "source_text": "Operating expenses 16 176,605.07 152,269.34",
+        "current": 176605.07,
+        "comparative": 152269.34
+      },
+      {
+        "label": "Provisions and contingencies",
+        "values": [
+          36976.49,
+          36140.38
+        ],
+        "page_number": 1,
+        "source_text": "Provisions and contingencies 18 (10) 36,976.49 36,140.38",
+        "current": 36976.49,
+        "comparative": 36140.38
+      },
+      {
+        "label": "Consolidated Net Profit for the year before Minority Interest",
+        "values": [
+          73440.17,
+          65446.5
+        ],
+        "page_number": 1,
+        "source_text": "Consolidated Net Profit for the year before Minority Interest 73,440.17 65,446.50",
+        "current": 73440.17,
+        "comparative": 65446.5
+      },
+      {
+        "label": "Less : Minority Interest",
+        "values": [
+          2647.92,
+          1384.46
+        ],
+        "page_number": 1,
+        "source_text": "Less : Minority Interest 2,647.92 1,384.46",
+        "current": 2647.92,
+        "comparative": 1384.46
+      },
+      {
+        "label": "Consolidated Net Profit for the year attributable to the group",
+        "values": [
+          70792.25,
+          64062.04
+        ],
+        "page_number": 1,
+        "source_text": "Consolidated Net Profit for the year attributable to the group 70,792.25 64,062.04",
+        "current": 70792.25,
+        "comparative": 64062.04
+      },
+      {
+        "label": "Brought forward consolidated profit attributable to the group",
+        "values": [
+          150045.57,
+          120369.35
+        ],
+        "page_number": 1,
+        "source_text": "Brought forward consolidated profit attributable to the group 150,045.57 120,369.35",
+        "current": 150045.57,
+        "comparative": 120369.35
+      },
+      {
+        "label": "Addition on amalgamation (net)",
+        "values": [
+          -1,
+          3570.1
+        ],
+        "page_number": 1,
+        "source_text": "Addition on amalgamation (net) 18 (1) - 3,570.10",
+        "current": -1,
+        "comparative": 3570.1
+      },
+      {
+        "label": "Transfer to Statutory Reserve",
+        "values": [
+          17260.3,
+          15684.72
+        ],
+        "page_number": 1,
+        "source_text": "Transfer to Statutory Reserve 17,260.30 15,684.72",
+        "current": 17260.3,
+        "comparative": 15684.72
+      },
+      {
+        "label": "Transfer to General Reserve",
+        "values": [
+          6734.74,
+          6081.23
+        ],
+        "page_number": 1,
+        "source_text": "Transfer to General Reserve 6,734.74 6,081.23",
+        "current": 6734.74,
+        "comparative": 6081.23
+      },
+      {
+        "label": "Transfer to Special Reserve",
+        "values": [
+          3200,
+          3000
+        ],
+        "page_number": 1,
+        "source_text": "Transfer to Special Reserve 3,200.00 3,000.00",
+        "current": 3200,
+        "comparative": 3000
+      },
+      {
+        "label": "Transfer to Capital Reserve",
+        "values": [
+          507,
+          4166.41
+        ],
+        "page_number": 1,
+        "source_text": "Transfer to Capital Reserve 507.00 4,166.41",
+        "current": 507,
+        "comparative": 4166.41
+      },
+      {
+        "label": "Transfer to / (from) Investment Reserve Account (net)",
+        "values": [
+          629.42
+        ],
+        "page_number": 1,
+        "source_text": "Transfer to / (from) Investment Reserve Account (net) - 629.42",
+        "current": 629.42
+      },
+      {
+        "label": "Transfer to / (from) Investment Fluctuation Reserve",
+        "values": [
+          378
+        ],
+        "page_number": 1,
+        "source_text": "Transfer to / (from) Investment Fluctuation Reserve - 378.00",
+        "current": 378
+      },
+      {
+        "label": "Dividend pertaining to previous year paid during the year",
+        "values": [
+          14826.19,
+          8404.42
+        ],
+        "page_number": 1,
+        "source_text": "Dividend pertaining to previous year paid during the year 14,826.19 8,404.42",
+        "current": 14826.19,
+        "comparative": 8404.42
+      },
+      {
+        "label": "Transfer to / (from) Minority Interest (opening adjustment)",
+        "values": [
+          -882.96,
+          -288.28
+        ],
+        "page_number": 1,
+        "source_text": "Transfer to / (from) Minority Interest (opening adjustment) (882.96) (288.28)",
+        "current": -882.96,
+        "comparative": -288.28
+      },
+      {
+        "label": "Balance carried over to consolidated balance sheet",
+        "values": [
+          178692.55,
+          150045.57
+        ],
+        "page_number": 1,
+        "source_text": "Balance carried over to consolidated balance sheet 178,692.55 150,045.57",
+        "current": 178692.55,
+        "comparative": 150045.57
+      },
+      {
+        "label": "V. EARNINGS PER EQUITY SHARE (Face value \u00a9 /- per share) \u00b0 .",
+        "values": [
+          18,
+          -19
+        ],
+        "page_number": 1,
+        "source_text": "V. EARNINGS PER EQUITY SHARE (Face value \u00a9 1/- per share) 18 (19) \u00b0 .",
+        "current": 18,
+        "comparative": -19
+      },
+      {
+        "label": "Basic",
+        "values": [
+          92.81,
+          90.42
+        ],
+        "page_number": 1,
+        "source_text": "Basic 92.81 90.42",
+        "current": 92.81,
+        "comparative": 90.42
+      },
+      {
+        "label": "Diluted",
+        "values": [
+          92.39,
+          90.01
+        ],
+        "page_number": 1,
+        "source_text": "Diluted 92.39 90.01",
+        "current": 92.39,
+        "comparative": 90.01
+      },
+      {
+        "label": "E/E W M. D. Ranganath Sunita Maheshwari",
+        "values": [
+          264,
+          10104
+        ],
+        "page_number": 1,
+        "source_text": "301112E/E300264 101048W M. D. Ranganath Sunita Maheshwari",
+        "current": 264,
+        "comparative": 10104
+      },
+      {
+        "label": "Membership No.: Membership No.: Independent Director Independent Director",
+        "values": [
+          101119,
+          116976
+        ],
+        "page_number": 1,
+        "source_text": "Membership No.: 101119 Membership No.: 116976 Independent Director Independent Director",
+        "current": 101119,
+        "comparative": 116976
+      },
+      {
+        "label": "Mumbai, April Chief Financial Officer Company Secretary",
+        "values": [
+          19202,
+          5
+        ],
+        "page_number": 1,
+        "source_text": "Mumbai, April 19, 2025 Chief Financial Officer Company Secretary",
+        "current": 19202,
+        "comparative": 5
+      },
+      {
+        "label": "Integrated Annual Report",
+        "values": [
+          25,
+          447
+        ],
+        "page_number": 1,
+        "source_text": "Integrated Annual Report 2024-25 447",
+        "current": 25,
+        "comparative": 447
+      }
+    ],
+    "extraction_quality": {
+      "required_fields_missing": [],
+      "manual_review_required": false,
+      "method": "dynamic_ocr_plus_single_llm_pass",
+      "dynamic_schema": true
+    }
+  },
+  "validation": {
+    "checks": [
+      {
+        "name": "income_reconciliation_check",
+        "formula": "interest_earned + other_income \u2248 total_income",
+        "operands": {
+          "interest_earned": 336367.43,
+          "other_income": 134548.5
+        },
+        "calculated_value": 470915.93,
+        "reported_value": 470915.93,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "expenditure_reconciliation_check",
+        "formula": "interest_expended + operating_expenses + provisions_and_contingencies \u2248 total_expenditure",
+        "operands": {
+          "interest_expended": 183894.2,
+          "operating_expenses": 176605.07,
+          "provisions_and_contingencies": 36976.49
+        },
+        "calculated_value": 397475.76,
+        "reported_value": 397475.76,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "net_profit_before_minority_check",
+        "formula": "total_income - total_expenditure \u2248 consolidated_net_profit_before_minority_interest",
+        "operands": {
+          "total_income": 470915.93,
+          "total_expenditure": 397475.76
+        },
+        "calculated_value": 73440.17,
+        "reported_value": 73440.17,
+        "variance": -0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "net_profit_attributable_check",
+        "formula": "profit_before_minority_interest - minority_interest \u2248 consolidated_net_profit_attributable_to_group",
+        "operands": {
+          "consolidated_net_profit_before_minority_interest": 73440.17,
+          "minority_interest": 2647.92
+        },
+        "calculated_value": 70792.25,
+        "reported_value": 70792.25,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "appropriation_check",
+        "formula": "current_profit + brought_forward_profit \u2248 total_available_for_appropriation",
+        "operands": {
+          "current_profit": null,
+          "brought_forward_profit": null
+        },
+        "calculated_value": null,
+        "reported_value": null,
+        "variance": null,
+        "status": "NOT_APPLICABLE"
+      },
+      {
+        "name": "income_reconciliation_check_comparative",
+        "formula": "interest_earned + other_income \u2248 total_income",
+        "operands": {
+          "interest_earned": 283649.02,
+          "other_income": 124345.75
+        },
+        "calculated_value": 407994.77,
+        "reported_value": null,
+        "variance": null,
+        "status": "NOT_APPLICABLE"
+      },
+      {
+        "name": "expenditure_reconciliation_check_comparative",
+        "formula": "interest_expended + operating_expenses + provisions_and_contingencies \u2248 total_expenditure",
+        "operands": {
+          "interest_expended": 154138.55,
+          "operating_expenses": 152269.34,
+          "provisions_and_contingencies": 36140.38
+        },
+        "calculated_value": 342548.27,
+        "reported_value": null,
+        "variance": null,
+        "status": "NOT_APPLICABLE"
+      },
+      {
+        "name": "net_profit_before_minority_check_comparative",
+        "formula": "total_income - total_expenditure \u2248 consolidated_net_profit_before_minority_interest",
+        "operands": {
+          "total_income": null,
+          "total_expenditure": null
+        },
+        "calculated_value": null,
+        "reported_value": 65446.5,
+        "variance": null,
+        "status": "NOT_APPLICABLE"
+      },
+      {
+        "name": "net_profit_attributable_check_comparative",
+        "formula": "profit_before_minority_interest - minority_interest \u2248 consolidated_net_profit_attributable_to_group",
+        "operands": {
+          "consolidated_net_profit_before_minority_interest": 65446.5,
+          "minority_interest": 1384.46
+        },
+        "calculated_value": 64062.04,
+        "reported_value": 64062.04,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "appropriation_check_comparative",
+        "formula": "current_profit + brought_forward_profit \u2248 total_available_for_appropriation",
+        "operands": {
+          "current_profit": null,
+          "brought_forward_profit": null
+        },
+        "calculated_value": null,
+        "reported_value": null,
+        "variance": null,
+        "status": "NOT_APPLICABLE"
+      }
+    ],
+    "overall_status": "PASS",
+    "issues": []
+  },
+  "processing_metadata": {
+    "ocr_used": true,
+    "processed_at": "2026-09-12T02:34:59.449334+00:00",
+    "processing_time_ms": 3793
+  }
+}

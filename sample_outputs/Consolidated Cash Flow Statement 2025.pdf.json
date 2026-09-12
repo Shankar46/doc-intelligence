@@ -1,0 +1,1268 @@
+{
+  "document_name": "Consolidated Cash Flow Statement 2025.pdf",
+  "document_type": "cash_flow_statement",
+  "processing_status": "PASS",
+  "file_validation": {
+    "file_type": "application/pdf",
+    "is_supported": true,
+    "is_readable": true,
+    "page_count": 2,
+    "status": "PASS",
+    "reason": null
+  },
+  "extracted_data": {
+    "operating_cash_flow": {
+      "value": 127241.84,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Net cash flows from operating activities 127,241.84 19,069.34",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "operating_cash_flow__comparative": {
+      "value": 19069.34,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Net cash flows from operating activities 127,241.84 19,069.34",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "investing_cash_flow": {
+      "value": -3850.64,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Net cash flow from / (used in) investing activities (3,850.64) 5,313.77",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "investing_cash_flow__comparative": {
+      "value": 5313.77,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Net cash flow from / (used in) investing activities (3,850.64) 5,313.77",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "financing_cash_flow": {
+      "value": -102477.54,
+      "page_number": 2,
+      "evidence": {
+        "source_text": "Net cash flow used in financing activities (102,477.54) (3,983.06)",
+        "page_number": 2
+      },
+      "confidence": 0.9
+    },
+    "financing_cash_flow__comparative": {
+      "value": -3983.06,
+      "page_number": 2,
+      "evidence": {
+        "source_text": "Net cash flow used in financing activities (102,477.54) (3,983.06)",
+        "page_number": 2
+      },
+      "confidence": 0.9
+    },
+    "net_change_in_cash": {
+      "value": 21113.39,
+      "page_number": 2,
+      "evidence": {
+        "source_text": "Net increase in cash and cash equivalents 21,113.39 20,504.99",
+        "page_number": 2
+      },
+      "confidence": 0.9
+    },
+    "net_change_in_cash__comparative": {
+      "value": 20504.99,
+      "page_number": 2,
+      "evidence": {
+        "source_text": "Net increase in cash and cash equivalents 21,113.39 20,504.99",
+        "page_number": 2
+      },
+      "confidence": 0.9
+    },
+    "opening_cash": {
+      "value": 228834.51,
+      "page_number": 2,
+      "evidence": {
+        "source_text": "Cash and cash equivalents at the beginning of the year 228,834.51 197,147.81",
+        "page_number": 2
+      },
+      "confidence": 0.9
+    },
+    "opening_cash__comparative": {
+      "value": 197147.81,
+      "page_number": 2,
+      "evidence": {
+        "source_text": "Cash and cash equivalents at the beginning of the year 228,834.51 197,147.81",
+        "page_number": 2
+      },
+      "confidence": 0.9
+    },
+    "cash_acquired_on_amalgamation": {
+      "value": 0,
+      "page_number": 2,
+      "evidence": {
+        "source_text": "Cash and cash equivalents acquired on amalgamation - 11,181.71",
+        "page_number": 2
+      },
+      "confidence": 0.88
+    },
+    "closing_cash": {
+      "value": 249947.9,
+      "page_number": 2,
+      "evidence": {
+        "source_text": "Cash and cash equivalents at the end of the year 249,947.90 228,834.51",
+        "page_number": 2
+      },
+      "confidence": 0.9
+    },
+    "closing_cash__comparative": {
+      "value": 228834.51,
+      "page_number": 2,
+      "evidence": {
+        "source_text": "Cash and cash equivalents at the end of the year 249,947.90 228,834.51",
+        "page_number": 2
+      },
+      "confidence": 0.9
+    },
+    "statement_name": {
+      "value": "CONSOLIDATED CASH FLOW STATEMENT",
+      "page_number": 1,
+      "evidence": {
+        "source_text": "CONSOLIDATED CASH FLOW STATEMENT",
+        "page_number": 1
+      },
+      "confidence": 0.97
+    },
+    "statement_periods": {
+      "value": [
+        "March 31, 2025",
+        "March 31, 2024"
+      ],
+      "page_number": 1,
+      "evidence": {
+        "source_text": "March 31, 2025 March 31, 2024",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "statement_date": {
+      "value": "March 31, 2025",
+      "page_number": 1,
+      "evidence": {
+        "source_text": "March 31, 2025",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "unit_scale": {
+      "value": "in crore",
+      "page_number": 1,
+      "evidence": {
+        "source_text": "in crore",
+        "page_number": 1
+      },
+      "confidence": 0.86
+    },
+    "vendor_name": {
+      "value": "Consolidated profit before income tax and after minority interest 93,594.13 75,184.14",
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Cash flows from operating activities:",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "tax": {
+      "value": "93,594.13 75,184.14",
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Consolidated profit before income tax and after minority interest 93,594.13 75,184.14",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "consolidated_net_profit_before_minority_interest": {
+      "value": "93,594.13 75,184.14",
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Consolidated profit before income tax and after minority interest 93,594.13 75,184.14",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "fixed_assets": {
+      "value": "3,805.23 3,092.08",
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Depreciation on fixed assets 3,805.23 3,092.08",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "investments": {
+      "value": -6957.14,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "(Profit) / loss on revaluation of investments 3,909.10 (6,957.14)",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "advances": {
+      "value": -312488.37,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Increase in advances (169,918.22) (312,488.37)",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "deposits": {
+      "value": "334,010.95 336,964.81",
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Increase in deposits 334,010.95 336,964.81",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "other_assets": {
+      "value": -27919.59,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Increase in other assets (10,829.67) (27,919.59)",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "other_liabilities_and_provisions": {
+      "value": "13,117.98 6,420.40",
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Increase in other liabilities and provisions 13,117.98 6,420.40",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "minority_interest": {
+      "value": "2,382.88 1,201.66",
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Increase in minority interest 2,382.88 1,201.66",
+        "page_number": 1
+      },
+      "confidence": 0.9
+    },
+    "capital": {
+      "value": "6,346.50 5,249.73",
+      "page_number": 2,
+      "evidence": {
+        "source_text": "Proceeds from issue of share capital other than warrants 6,346.50 5,249.73",
+        "page_number": 2
+      },
+      "confidence": 0.9
+    },
+    "borrowings": {
+      "value": -7342.84,
+      "page_number": 2,
+      "evidence": {
+        "source_text": "Decrease in other borrowings (97,062.73) (7,342.84)",
+        "page_number": 2
+      },
+      "confidence": 0.9
+    },
+    "currency": {
+      "value": "199.73 104.94",
+      "page_number": 2,
+      "evidence": {
+        "source_text": "Effect of fluctuation in foreign currency translation reserve 199.73 104.94",
+        "page_number": 2
+      },
+      "confidence": 0.9
+    },
+    "discovered_fields": {
+      "for the year ended march": {
+        "value": "31, 2025",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "For the year ended March 31, 2025",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "march 31 2025 march": {
+        "value": "31, 2024",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "March 31, 2025 March 31, 2024",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "cash flows from operating activities": {
+        "value": "Consolidated profit before income tax and after minority interest 93,594.13 75,184.14",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Cash flows from operating activities:",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "consolidated profit before income tax and after minority interest": {
+        "value": "93,594.13 75,184.14",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Consolidated profit before income tax and after minority interest 93,594.13 75,184.14",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "adjustments for": {
+        "value": "Depreciation on fixed assets 3,805.23 3,092.08",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Adjustments for:",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "depreciation on fixed assets": {
+        "value": "3,805.23 3,092.08",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Depreciation on fixed assets 3,805.23 3,092.08",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "profit loss on revaluation of investments 3 909 10": {
+        "value": -6957.14,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "(Profit) / loss on revaluation of investments 3,909.10 (6,957.14)",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "amortisation of premium on investments": {
+        "value": "87.07 966.09",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Amortisation of premium on investments 87.07 966.09",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "profit on sale of fixed assets 22 03": {
+        "value": -75.36,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Profit on sale of fixed assets (22.03) (75.36)",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "profit loss on sale of investment in subsidiary 8 00": {
+        "value": -7341.42,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "(Profit) / loss on sale of investment in subsidiary 8.00 (7,341.42)",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "provision charge for non performing assets": {
+        "value": "15,385.24 12,540.05",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Provision / charge for non performing assets 15,385.24 12,540.05",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "floating provisions": {
+        "value": 10900,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Floating provisions - 10,900.00",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "provision write back for standard assets and contingencies 1 210 63": {
+        "value": 1578.23,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Provision / (write-back) for standard assets and contingencies (1,210.63) 1,578.23",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "employee stock options units expense": {
+        "value": "2,086.05 1,731.73",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Employee stock options / units expense 2,086.05 1,731.73",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "increase in investments 180 362 67": {
+        "value": -88411.63,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Increase in investments (180,362.67) (88,411.63)",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "increase in advances 169 918 22": {
+        "value": -312488.37,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Increase in advances (169,918.22) (312,488.37)",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "increase in deposits": {
+        "value": "334,010.95 336,964.81",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Increase in deposits 334,010.95 336,964.81",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "increase in other assets 10 829 67": {
+        "value": -27919.59,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Increase in other assets (10,829.67) (27,919.59)",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "increase in other liabilities and provisions": {
+        "value": "13,117.98 6,420.40",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Increase in other liabilities and provisions 13,117.98 6,420.40",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "increase in policyholders funds": {
+        "value": "43,289.99 35,728.16",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Increase in policyholders' funds 43,289.99 35,728.16",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "direct taxes paid net of refunds 19 708 68": {
+        "value": -22842.84,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Direct taxes paid (net of refunds) (19,708.68) (22,842.84)",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "net cash flows from operating activities": {
+        "value": "127,241.84 19,069.34",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Net cash flows from operating activities 127,241.84 19,069.34",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "cash flows from investing activities": {
+        "value": "Purchase of fixed assets (4,075.89) (4,286.72)",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Cash flows from investing activities:",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "purchase of fixed assets 4 075 89": {
+        "value": -4286.72,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Purchase of fixed assets (4,075.89) (4,286.72)",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "proceeds from sale of fixed assets": {
+        "value": "100.72 99.82",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Proceeds from sale of fixed assets 100.72 99.82",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "proceeds from sale of investment in subsidiary net": {
+        "value": "192.00 9,500.67",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Proceeds from sale of investment in subsidiary (net) 192.00 9,500.67",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "net cash flow from used in investing activities 3 850 64": {
+        "value": 5313.77,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Net cash flow from / (used in) investing activities (3,850.64) 5,313.77",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "cash flows from financing activities": {
+        "value": "Increase in minority interest 2,382.88 1,201.66",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Cash flows from financing activities:",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "increase in minority interest": {
+        "value": "2,382.88 1,201.66",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Increase in minority interest 2,382.88 1,201.66",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "proceeds from exercise of convertible equity warrants": {
+        "value": 3192.81,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Proceeds from exercise of convertible equity warrants - 3,192.81",
+          "page_number": 1
+        },
+        "confidence": 0.96
+      },
+      "proceeds from issue of share capital other than warrants": {
+        "value": "6,346.50 5,249.73",
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Proceeds from issue of share capital other than warrants 6,346.50 5,249.73",
+          "page_number": 2
+        },
+        "confidence": 0.96
+      },
+      "proceeds from issue of tier 1 and tier 2 capital instruments": {
+        "value": "1,182.00 2,350.00",
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Proceeds from issue of Tier 1 and Tier 2 capital instruments 1,182.00 2,350.00",
+          "page_number": 2
+        },
+        "confidence": 0.96
+      },
+      "redemption of tier 1 and tier 2 capital instruments 600 00": {
+        "value": -230,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Redemption of Tier 1 and Tier 2 capital instruments (600.00) (230.00)",
+          "page_number": 2
+        },
+        "confidence": 0.96
+      },
+      "decrease in other borrowings 97 062 73": {
+        "value": -7342.84,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Decrease in other borrowings (97,062.73) (7,342.84)",
+          "page_number": 2
+        },
+        "confidence": 0.96
+      },
+      "dividend paid during the year 14 826 19": {
+        "value": -8404.42,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Dividend paid during the year (14,826.19) (8,404.42)",
+          "page_number": 2
+        },
+        "confidence": 0.96
+      },
+      "net cash flow used in financing activities 102 477 54": {
+        "value": -3983.06,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Net cash flow used in financing activities (102,477.54) (3,983.06)",
+          "page_number": 2
+        },
+        "confidence": 0.96
+      },
+      "effect of fluctuation in foreign currency translation reserve": {
+        "value": "199.73 104.94",
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Effect of fluctuation in foreign currency translation reserve 199.73 104.94",
+          "page_number": 2
+        },
+        "confidence": 0.96
+      },
+      "net increase in cash and cash equivalents": {
+        "value": "21,113.39 20,504.99",
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Net increase in cash and cash equivalents 21,113.39 20,504.99",
+          "page_number": 2
+        },
+        "confidence": 0.96
+      },
+      "cash and cash equivalents at the beginning of the year": {
+        "value": "228,834.51 197,147.81",
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Cash and cash equivalents at the beginning of the year 228,834.51 197,147.81",
+          "page_number": 2
+        },
+        "confidence": 0.96
+      },
+      "cash and cash equivalents acquired on amalgamation": {
+        "value": 11181.71,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Cash and cash equivalents acquired on amalgamation - 11,181.71",
+          "page_number": 2
+        },
+        "confidence": 0.96
+      },
+      "cash and cash equivalents at the end of the year": {
+        "value": "249,947.90 228,834.51",
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Cash and cash equivalents at the end of the year 249,947.90 228,834.51",
+          "page_number": 2
+        },
+        "confidence": 0.96
+      },
+      "icai firm registration no": {
+        "value": "ICAI Firm Registration No.:",
+        "page_number": 2,
+        "evidence": {
+          "source_text": "ICAI Firm Registration No.: ICAI Firm Registration No.:",
+          "page_number": 2
+        },
+        "confidence": 0.96
+      },
+      "membership no": {
+        "value": "101119 Membership No.: 116976 Independent Director Independent Director",
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Membership No.: 101119 Membership No.: 116976 Independent Director Independent Director",
+          "page_number": 2
+        },
+        "confidence": 0.96
+      },
+      "integrated annual report 2024 25": {
+        "value": 449,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Integrated Annual Report 2024-25 449",
+          "page_number": 2
+        },
+        "confidence": 0.96
+      }
+    },
+    "financial_line_items": [
+      {
+        "label": "For the year ended March",
+        "values": [
+          31202,
+          5
+        ],
+        "page_number": 1,
+        "source_text": "For the year ended March 31, 2025",
+        "current": 31202,
+        "comparative": 5
+      },
+      {
+        "label": "in crore",
+        "values": [
+          2
+        ],
+        "page_number": 1,
+        "source_text": "2 in crore",
+        "current": 2
+      },
+      {
+        "label": "March March",
+        "values": [
+          31202,
+          4
+        ],
+        "page_number": 1,
+        "source_text": "March 31, 2025 March 31, 2024",
+        "current": 31202,
+        "comparative": 4
+      },
+      {
+        "label": "Consolidated profit before income tax and after minority interest",
+        "values": [
+          93594.13,
+          75184.14
+        ],
+        "page_number": 1,
+        "source_text": "Consolidated profit before income tax and after minority interest 93,594.13 75,184.14",
+        "current": 93594.13,
+        "comparative": 75184.14
+      },
+      {
+        "label": "Depreciation on fixed assets",
+        "values": [
+          3805.23,
+          3092.08
+        ],
+        "page_number": 1,
+        "source_text": "Depreciation on fixed assets 3,805.23 3,092.08",
+        "current": 3805.23,
+        "comparative": 3092.08
+      },
+      {
+        "label": "(Profit) / loss on revaluation of investments",
+        "values": [
+          3909.1,
+          -6957.14
+        ],
+        "page_number": 1,
+        "source_text": "(Profit) / loss on revaluation of investments 3,909.10 (6,957.14)",
+        "current": 3909.1,
+        "comparative": -6957.14
+      },
+      {
+        "label": "Amortisation of premium on investments",
+        "values": [
+          87.07,
+          966.09
+        ],
+        "page_number": 1,
+        "source_text": "Amortisation of premium on investments 87.07 966.09",
+        "current": 87.07,
+        "comparative": 966.09
+      },
+      {
+        "label": "Profit on sale of fixed assets",
+        "values": [
+          -22.03,
+          -75.36
+        ],
+        "page_number": 1,
+        "source_text": "Profit on sale of fixed assets (22.03) (75.36)",
+        "current": -22.03,
+        "comparative": -75.36
+      },
+      {
+        "label": "(Profit) / loss on sale of investment in subsidiary",
+        "values": [
+          8,
+          -7341.42
+        ],
+        "page_number": 1,
+        "source_text": "(Profit) / loss on sale of investment in subsidiary 8.00 (7,341.42)",
+        "current": 8,
+        "comparative": -7341.42
+      },
+      {
+        "label": "Provision / charge for non performing assets",
+        "values": [
+          15385.24,
+          12540.05
+        ],
+        "page_number": 1,
+        "source_text": "Provision / charge for non performing assets 15,385.24 12,540.05",
+        "current": 15385.24,
+        "comparative": 12540.05
+      },
+      {
+        "label": "Floating provisions",
+        "values": [
+          10900
+        ],
+        "page_number": 1,
+        "source_text": "Floating provisions - 10,900.00",
+        "current": 10900
+      },
+      {
+        "label": "Provision / (write-back) for standard assets and contingencies",
+        "values": [
+          -1210.63,
+          1578.23
+        ],
+        "page_number": 1,
+        "source_text": "Provision / (write-back) for standard assets and contingencies (1,210.63) 1,578.23",
+        "current": -1210.63,
+        "comparative": 1578.23
+      },
+      {
+        "label": "Employee stock options / units expense",
+        "values": [
+          2086.05,
+          1731.73
+        ],
+        "page_number": 1,
+        "source_text": "Employee stock options / units expense 2,086.05 1,731.73",
+        "current": 2086.05,
+        "comparative": 1731.73
+      },
+      {
+        "label": "Increase in investments",
+        "values": [
+          -180362.67,
+          -88411.63
+        ],
+        "page_number": 1,
+        "source_text": "Increase in investments (180,362.67) (88,411.63)",
+        "current": -180362.67,
+        "comparative": -88411.63
+      },
+      {
+        "label": "Increase in advances",
+        "values": [
+          -169918.22,
+          -312488.37
+        ],
+        "page_number": 1,
+        "source_text": "Increase in advances (169,918.22) (312,488.37)",
+        "current": -169918.22,
+        "comparative": -312488.37
+      },
+      {
+        "label": "Increase in deposits",
+        "values": [
+          334010.95,
+          336964.81
+        ],
+        "page_number": 1,
+        "source_text": "Increase in deposits 334,010.95 336,964.81",
+        "current": 334010.95,
+        "comparative": 336964.81
+      },
+      {
+        "label": "Increase in other assets",
+        "values": [
+          -10829.67,
+          -27919.59
+        ],
+        "page_number": 1,
+        "source_text": "Increase in other assets (10,829.67) (27,919.59)",
+        "current": -10829.67,
+        "comparative": -27919.59
+      },
+      {
+        "label": "Increase in other liabilities and provisions",
+        "values": [
+          13117.98,
+          6420.4
+        ],
+        "page_number": 1,
+        "source_text": "Increase in other liabilities and provisions 13,117.98 6,420.40",
+        "current": 13117.98,
+        "comparative": 6420.4
+      },
+      {
+        "label": "Increase in policyholders' funds",
+        "values": [
+          43289.99,
+          35728.16
+        ],
+        "page_number": 1,
+        "source_text": "Increase in policyholders' funds 43,289.99 35,728.16",
+        "current": 43289.99,
+        "comparative": 35728.16
+      },
+      {
+        "label": "Direct taxes paid (net of refunds)",
+        "values": [
+          -19708.68,
+          -22842.84
+        ],
+        "page_number": 1,
+        "source_text": "Direct taxes paid (net of refunds) (19,708.68) (22,842.84)",
+        "current": -19708.68,
+        "comparative": -22842.84
+      },
+      {
+        "label": "Net cash flows from operating activities",
+        "values": [
+          127241.84,
+          19069.34
+        ],
+        "page_number": 1,
+        "source_text": "Net cash flows from operating activities 127,241.84 19,069.34",
+        "current": 127241.84,
+        "comparative": 19069.34
+      },
+      {
+        "label": "Purchase of fixed assets",
+        "values": [
+          -4075.89,
+          -4286.72
+        ],
+        "page_number": 1,
+        "source_text": "Purchase of fixed assets (4,075.89) (4,286.72)",
+        "current": -4075.89,
+        "comparative": -4286.72
+      },
+      {
+        "label": "Proceeds from sale of fixed assets",
+        "values": [
+          100.72,
+          99.82
+        ],
+        "page_number": 1,
+        "source_text": "Proceeds from sale of fixed assets 100.72 99.82",
+        "current": 100.72,
+        "comparative": 99.82
+      },
+      {
+        "label": "Proceeds from sale of investment in subsidiary (net)",
+        "values": [
+          192,
+          9500.67
+        ],
+        "page_number": 1,
+        "source_text": "Proceeds from sale of investment in subsidiary (net) 192.00 9,500.67",
+        "current": 192,
+        "comparative": 9500.67
+      },
+      {
+        "label": "Investment in subsidiaries",
+        "values": [
+          -67.47
+        ],
+        "page_number": 1,
+        "source_text": "Investment in subsidiaries (67.47) -",
+        "current": -67.47
+      },
+      {
+        "label": "Net cash flow from / (used in) investing activities",
+        "values": [
+          -3850.64,
+          5313.77
+        ],
+        "page_number": 1,
+        "source_text": "Net cash flow from / (used in) investing activities (3,850.64) 5,313.77",
+        "current": -3850.64,
+        "comparative": 5313.77
+      },
+      {
+        "label": "Increase in minority interest",
+        "values": [
+          2382.88,
+          1201.66
+        ],
+        "page_number": 1,
+        "source_text": "Increase in minority interest 2,382.88 1,201.66",
+        "current": 2382.88,
+        "comparative": 1201.66
+      },
+      {
+        "label": "Proceeds from exercise of convertible equity warrants",
+        "values": [
+          3192.81
+        ],
+        "page_number": 1,
+        "source_text": "Proceeds from exercise of convertible equity warrants - 3,192.81",
+        "current": 3192.81
+      },
+      {
+        "label": "DFC Bank Limited",
+        "values": [
+          448
+        ],
+        "page_number": 1,
+        "source_text": "448 DFC Bank Limited",
+        "current": 448
+      },
+      {
+        "label": "For the year ended March",
+        "values": [
+          31202,
+          5
+        ],
+        "page_number": 2,
+        "source_text": "For the year ended March 31, 2025",
+        "current": 31202,
+        "comparative": 5
+      },
+      {
+        "label": "March March",
+        "values": [
+          31202,
+          4
+        ],
+        "page_number": 2,
+        "source_text": "March 31, 2025 March 31, 2024",
+        "current": 31202,
+        "comparative": 4
+      },
+      {
+        "label": "Proceeds from issue of share capital other than warrants",
+        "values": [
+          6346.5,
+          5249.73
+        ],
+        "page_number": 2,
+        "source_text": "Proceeds from issue of share capital other than warrants 6,346.50 5,249.73",
+        "current": 6346.5,
+        "comparative": 5249.73
+      },
+      {
+        "label": "Proceeds from issue of Tier and Tier capital instruments",
+        "values": [
+          1182,
+          2350
+        ],
+        "page_number": 2,
+        "source_text": "Proceeds from issue of Tier 1 and Tier 2 capital instruments 1,182.00 2,350.00",
+        "current": 1182,
+        "comparative": 2350
+      },
+      {
+        "label": "Redemption of Tier and Tier capital instruments",
+        "values": [
+          -600,
+          -230
+        ],
+        "page_number": 2,
+        "source_text": "Redemption of Tier 1 and Tier 2 capital instruments (600.00) (230.00)",
+        "current": -600,
+        "comparative": -230
+      },
+      {
+        "label": "Decrease in other borrowings",
+        "values": [
+          -97062.73,
+          -7342.84
+        ],
+        "page_number": 2,
+        "source_text": "Decrease in other borrowings (97,062.73) (7,342.84)",
+        "current": -97062.73,
+        "comparative": -7342.84
+      },
+      {
+        "label": "Dividend paid during the year",
+        "values": [
+          -14826.19,
+          -8404.42
+        ],
+        "page_number": 2,
+        "source_text": "Dividend paid during the year (14,826.19) (8,404.42)",
+        "current": -14826.19,
+        "comparative": -8404.42
+      },
+      {
+        "label": "Net cash flow used in financing activities",
+        "values": [
+          -102477.54,
+          -3983.06
+        ],
+        "page_number": 2,
+        "source_text": "Net cash flow used in financing activities (102,477.54) (3,983.06)",
+        "current": -102477.54,
+        "comparative": -3983.06
+      },
+      {
+        "label": "Effect of fluctuation in foreign currency translation reserve",
+        "values": [
+          199.73,
+          104.94
+        ],
+        "page_number": 2,
+        "source_text": "Effect of fluctuation in foreign currency translation reserve 199.73 104.94",
+        "current": 199.73,
+        "comparative": 104.94
+      },
+      {
+        "label": "Net increase in cash and cash equivalents",
+        "values": [
+          21113.39,
+          20504.99
+        ],
+        "page_number": 2,
+        "source_text": "Net increase in cash and cash equivalents 21,113.39 20,504.99",
+        "current": 21113.39,
+        "comparative": 20504.99
+      },
+      {
+        "label": "Cash and cash equivalents at the beginning of the year",
+        "values": [
+          228834.51,
+          197147.81
+        ],
+        "page_number": 2,
+        "source_text": "Cash and cash equivalents at the beginning of the year 228,834.51 197,147.81",
+        "current": 228834.51,
+        "comparative": 197147.81
+      },
+      {
+        "label": "Cash and cash equivalents acquired on amalgamation",
+        "values": [
+          11181.71
+        ],
+        "page_number": 2,
+        "source_text": "Cash and cash equivalents acquired on amalgamation - 11,181.71",
+        "current": 11181.71
+      },
+      {
+        "label": "Cash and cash equivalents at the end of the year",
+        "values": [
+          249947.9,
+          228834.51
+        ],
+        "page_number": 2,
+        "source_text": "Cash and cash equivalents at the end of the year 249,947.90 228,834.51",
+        "current": 249947.9,
+        "comparative": 228834.51
+      },
+      {
+        "label": "(Refer Schedule and Schedule .",
+        "values": [
+          6,
+          7
+        ],
+        "page_number": 2,
+        "source_text": "(Refer Schedule 6 and Schedule 7).",
+        "current": 6,
+        "comparative": 7
+      },
+      {
+        "label": "E/E W M. D. Ranganath Sunita Maheshwari",
+        "values": [
+          264,
+          10104
+        ],
+        "page_number": 2,
+        "source_text": "301112E/E300264 101048W M. D. Ranganath Sunita Maheshwari",
+        "current": 264,
+        "comparative": 10104
+      },
+      {
+        "label": "Membership No.: Membership No.: Independent Director Independent Director",
+        "values": [
+          101119,
+          116976
+        ],
+        "page_number": 2,
+        "source_text": "Membership No.: 101119 Membership No.: 116976 Independent Director Independent Director",
+        "current": 101119,
+        "comparative": 116976
+      },
+      {
+        "label": "Mumbai, April Chief Financial Officer Company Secretary",
+        "values": [
+          19202,
+          5
+        ],
+        "page_number": 2,
+        "source_text": "Mumbai, April 19, 2025 Chief Financial Officer Company Secretary",
+        "current": 19202,
+        "comparative": 5
+      },
+      {
+        "label": "Integrated Annual Report",
+        "values": [
+          25,
+          449
+        ],
+        "page_number": 2,
+        "source_text": "Integrated Annual Report 2024-25 449",
+        "current": 25,
+        "comparative": 449
+      }
+    ],
+    "extraction_quality": {
+      "required_fields_missing": [],
+      "manual_review_required": false,
+      "method": "dynamic_ocr_plus_single_llm_pass",
+      "dynamic_schema": true
+    }
+  },
+  "validation": {
+    "checks": [
+      {
+        "name": "net_change_check",
+        "formula": "operating_cash_flow + investing_cash_flow + financing_cash_flow + FX / Translation Adjustment + Amalgamation",
+        "operands": {
+          "operating_cash_flow": 127241.84,
+          "investing_cash_flow": -3850.64,
+          "financing_cash_flow": -102477.54,
+          "fx_translation_adjustment": null,
+          "cash_acquired_on_amalgamation": 0.0
+        },
+        "calculated_value": 20913.66,
+        "reported_value": 21113.39,
+        "variance": null,
+        "status": "NOT_APPLICABLE"
+      },
+      {
+        "name": "closing_cash_check",
+        "formula": "opening_cash + net_change_in_cash + applicable_adjustments",
+        "operands": {
+          "opening_cash": 228834.51,
+          "net_change_in_cash": 21113.39,
+          "cash_acquired_on_amalgamation": 0.0,
+          "other_adjustments": null
+        },
+        "calculated_value": 249947.9,
+        "reported_value": 249947.9,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "net_change_check_comparative",
+        "formula": "operating_cash_flow + investing_cash_flow + financing_cash_flow + FX / Translation Adjustment + Amalgamation",
+        "operands": {
+          "operating_cash_flow": 19069.34,
+          "investing_cash_flow": 5313.77,
+          "financing_cash_flow": -3983.06,
+          "fx_translation_adjustment": null,
+          "cash_acquired_on_amalgamation": null
+        },
+        "calculated_value": 20400.05,
+        "reported_value": 20504.99,
+        "variance": -104.94,
+        "status": "FAIL"
+      },
+      {
+        "name": "closing_cash_check_comparative",
+        "formula": "opening_cash + net_change_in_cash + applicable_adjustments",
+        "operands": {
+          "opening_cash": 197147.81,
+          "net_change_in_cash": 20504.99,
+          "cash_acquired_on_amalgamation": null,
+          "other_adjustments": null
+        },
+        "calculated_value": 217652.8,
+        "reported_value": 228834.51,
+        "variance": -11181.71,
+        "status": "FAIL"
+      }
+    ],
+    "overall_status": "PASS",
+    "issues": []
+  },
+  "processing_metadata": {
+    "ocr_used": true,
+    "processed_at": "2026-09-12T02:34:53.172540+00:00",
+    "processing_time_ms": 6055
+  }
+}

@@ -66,9 +66,13 @@ def process_document(db: Session, file_bytes: bytes, filename: str,
     validation_result = run_validation(document_type, extracted_data)
 
     # 5. Determine overall processing status per requirements:
+    # Based on the user's requirements:
     # PASS: Required fields are extracted accurately and required validations pass.
-    # FAILED: Document could not be processed, or validations fail.
-    processing_status = "PASS" if validation_result.get("overall_status") == "PASS" else "FAILED"
+    # FAILED: Document could not be processed, is invalid, corrupted, unsupported, OR validation failed.
+    if validation_result.get("overall_status") == "PASS":
+        processing_status = "PASS"
+    else:
+        processing_status = "FAILED"
 
     elapsed_ms = int((time.perf_counter() - start) * 1000)
     result = {

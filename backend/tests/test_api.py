@@ -42,7 +42,7 @@ def test_document_detail_page_renders():
 
 
 
-def test_processing_status_is_pass_when_validation_fails(monkeypatch):
+def test_processing_status_is_failed_when_validation_fails(monkeypatch):
     import app.services.document_service as ds
 
     class FakeRepo:
@@ -66,5 +66,5 @@ def test_processing_status_is_pass_when_validation_fails(monkeypatch):
     monkeypatch.setattr(ds, "run_validation", lambda *a, **k: {"checks":[{"name":"total","status":"FAIL","calculated_value":90,"reported_value":100,"variance":-10,"formula":"x","operands":{}}],"overall_status":"FAIL","issues":["mismatch"]})
 
     result = ds.process_document(object(), b"bytes", "x.jpg", "image/jpeg", "invoice")
-    assert result["processing_status"] == "PASS"
+    assert result["processing_status"] == "FAILED"
     assert result["validation"]["overall_status"] == "FAIL"

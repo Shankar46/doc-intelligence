@@ -62,7 +62,11 @@ async function loadDocuments() {
     docs.forEach((doc) => {
       const tr = document.createElement("tr");
       const statusClass = (doc.processing_status || "").toLowerCase() === "pass" ? "badge-pass" : "badge-fail";
-      const dateStr = doc.processed_at ? new Date(doc.processed_at).toLocaleString() : "-";
+      let timeString = doc.processed_at;
+      if (timeString && !timeString.endsWith('Z') && !timeString.includes('+')) {
+          timeString += 'Z';
+      }
+      const dateStr = timeString ? new Date(timeString).toLocaleString() : "-";
 
       tr.innerHTML = `
         <td style="font-weight: 500;">
