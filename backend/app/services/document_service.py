@@ -11,6 +11,7 @@ import time
 from datetime import datetime, timezone
 
 from sqlalchemy.orm import Session
+from app.core.database import SessionLocal
 
 from app.repositories.document_repository import DocumentRepository
 from app.services.document_validation_service import validate_file, DocumentValidationError, _detect_kind
@@ -19,6 +20,23 @@ from app.services.extraction_service import extract_fields
 from app.services.financial_validation_service import run_validation
 
 logger = logging.getLogger(__name__)
+
+
+def process_in_background(file_bytes: bytes, filename: str, content_type: str, document_type: str):
+    """
+    Background wrapper that creates its own DB session so it can run safely
+    after the main HTTP request has completed.
+    """
+    db = SessionLocal()
+    try:
+        process_document(db, file_bytes, filename, content_type, document_type)
+    except Exception:
+        logger.exception("Unhandled error in background processing for '%s'", filename)
+        repo = DocumentRepository(db)
+        result = _build_failed_response(filename, document_type, "INTERNAL_ERROR", "Unexpected background error", time.perf_counter())
+        repo.save_result(filename, document_type, "FAILED", result)
+    finally:
+        db.close()
 
 
 class DocumentProcessingError(Exception):

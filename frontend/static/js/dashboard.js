@@ -61,7 +61,10 @@ async function loadDocuments() {
 
     docs.forEach((doc) => {
       const tr = document.createElement("tr");
-      const statusClass = (doc.processing_status || "").toLowerCase() === "pass" ? "badge-pass" : "badge-fail";
+      let statusClass = "badge-fail";
+      const statusLower = (doc.processing_status || "").toLowerCase();
+      if (statusLower === "pass") statusClass = "badge-pass";
+      if (statusLower === "processing") statusClass = "badge-type";
       let timeString = doc.processed_at;
       if (timeString && !timeString.endsWith('Z') && !timeString.includes('+')) {
           timeString += 'Z';
@@ -104,7 +107,7 @@ document.getElementById("upload-form").addEventListener("submit", async (e) => {
     return;
   }
 
-  showStatus("Processing document via AI engine...", "info");
+  showStatus("Processing document via AI engine... (This may take up to 2 minutes)", "info");
   submitBtn.disabled = true;
 
   const formData = new FormData();
@@ -121,28 +124,73 @@ document.getElementById("upload-form").addEventListener("submit", async (e) => {
     if (!res.ok) {
       const errMsg = data.error?.message || "Processing failed.";
       showStatus(`Error: ${errMsg}`, "error");
+      submitBtn.disabled = false;
       return;
     }
 
+    if (data.processing_status === "PROCESSING") {
+      // Start polling
+      const filename = data.document_name;
+      let pollCount = 0;
+      const maxPolls = 60; // 3 minutes
+
+      // Immediately show processing record in the list
+      await loadDocuments();
+
+      const pollInterval = setInterval(async () => {
+        pollCount++;
+        if (pollCount > maxPolls) {
+          clearInterval(pollInterval);
+          showStatus("Polling timed out. Check the documents list later.", "error");
+          submitBtn.disabled = false;
+          return;
+        }
+
+        try {
+          const pollRes = await fetch(`${API_BASE}/documents/${encodeURIComponent(filename)}`);
+          if (pollRes.ok) {
+            const pollData = await pollRes.json();
+            
+            if (pollData.processing_status !== "PROCESSING") {
+              clearInterval(pollInterval);
+              const statusType = pollData.processing_status === "PASS" ? "success" : "error";
+              showStatus(`Processing complete: Status is ${pollData.processing_status}`, statusType);
+              
+              fileInput.value = "";
+              updateFilePreview();
+              await loadDocuments();
+              
+              setTimeout(() => {
+                window.location.href = `/documents/${encodeURIComponent(pollData.document_name)}/view`;
+              }, 1200);
+              
+              submitBtn.disabled = false;
+            }
+          }
+        } catch (err) {
+          console.error("Polling error:", err);
+        }
+      }, 3000);
+      
+      return;
+    }
+
+    // Fallback if backend returned immediate final status
     const statusType = data.processing_status === "PASS" ? "success" : "error";
     showStatus(`Processing complete: Status is ${data.processing_status}`, statusType);
     
-    // Reset file preview
     fileInput.value = "";
     updateFilePreview();
-    
-    // Refresh document list
     await loadDocuments();
 
-    // Redirect to detail view after 1 second if successful
     setTimeout(() => {
       window.location.href = `/documents/${encodeURIComponent(data.document_name)}/view`;
     }, 1200);
+    submitBtn.disabled = false;
 
   } catch (err) {
     showStatus("Network error while processing document.", "error");
     console.error(err);
-  } finally {
     submitBtn.disabled = false;
   }
 });

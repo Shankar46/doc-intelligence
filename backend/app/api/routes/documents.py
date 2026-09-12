@@ -4,12 +4,12 @@ in app.services.document_service.
 """
 import logging
 from datetime import timezone
-from fastapi import APIRouter, UploadFile, File, Form, Depends, HTTPException
+from fastapi import APIRouter, UploadFile, File, Form, Depends, HTTPException, BackgroundTasks
 from sqlalchemy.orm import Session
 
 from app.core.database import get_db
 from app.schemas.document import DocumentType
-from app.services.document_service import process_document
+from app.services.document_service import process_in_background
 from app.repositories.document_repository import DocumentRepository
 
 logger = logging.getLogger(__name__)
@@ -18,8 +18,9 @@ router = APIRouter(prefix="/api/v1", tags=["documents"])
 SUPPORTED_CONTENT_TYPES = {"application/pdf", "image/jpeg", "image/jpg", "image/png"}
 
 
-@router.post("/documents/process")
+@router.post("/documents/process", status_code=202)
 async def process_document_endpoint(
+    background_tasks: BackgroundTasks,
     file: UploadFile = File(...),
     document_type: DocumentType = Form(...),
     db: Session = Depends(get_db),
@@ -31,22 +32,28 @@ async def process_document_endpoint(
             "error": {"code": "EMPTY_FILE", "message": "The uploaded file is empty."}
         })
 
-    try:
-        result = process_document(
-            db=db,
-            file_bytes=file_bytes,
-            filename=file.filename,
-            content_type=file.content_type or "",
-            document_type=document_type.value,
-        )
-    except Exception:
-        # Anything unexpected: log full detail server-side, never leak internals to the client
-        logger.exception("Unexpected error processing '%s'", file.filename)
-        raise HTTPException(status_code=500, detail={
-            "error": {"code": "INTERNAL_ERROR", "message": "Document processing failed unexpectedly."}
-        })
+    # Save initial PROCESSING record
+    repo = DocumentRepository(db)
+    initial_result = {
+        "document_name": file.filename,
+        "document_type": document_type.value,
+        "processing_status": "PROCESSING",
+        "processing_metadata": {
+            "processed_at": None
+        }
+    }
+    repo.save_result(file.filename, document_type.value, "PROCESSING", initial_result)
 
-    return result
+    # Dispatch to background
+    background_tasks.add_task(
+        process_in_background,
+        file_bytes=file_bytes,
+        filename=file.filename,
+        content_type=file.content_type or "",
+        document_type=document_type.value
+    )
+
+    return initial_result
 
 
 @router.get("/documents/{document_name}")
